@@ -1,4 +1,4 @@
-import HADS.Server.*;
+import HADS.Server.StorageConnector;
 
 import java.io.*;
 import java.util.*;
@@ -8,7 +8,7 @@ class Driver
    public static void main(String args[]) throws IOException 
    {
 	System.out.println("Starting driver...");
-	StorageConnector sc = new HazelcastStorage();
+	StorageConnector sc = StorageConnector.getStorage();
 
 	Integer k = 0;
 	String v = "Hello World!";
