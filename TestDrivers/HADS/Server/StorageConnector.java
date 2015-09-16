@@ -2,6 +2,24 @@ package HADS.Server;
 
 public abstract class StorageConnector {
 
+  private static StorageConnector sc = null;
+
+  /*
+  * Gets the storage we would like to use. This can be Hazelcast/Redis/Gridgain
+  * returns an Object of the Storage we are using
+  * @param none
+  * @return StorageConnector
+  */
+  public static StorageConnector getStorage()
+  {
+	if(sc==null)
+	{
+		sc = new HazelcastStorage();
+	}
+
+	return sc;
+  }
+
   /*
   * Initializes the data structures and servers
   * returns a boolean, true if the initialize was successful, false otherwise
