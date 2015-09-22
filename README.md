@@ -3,7 +3,7 @@ All important research code
 
 Directories:
 
-./test
+./TestDrivers/HADS
 
 First version of testing Hazelcast's map operations with a simple driver.
 
