@@ -14,8 +14,8 @@ public abstract class StorageConnector {
   {
 	if(sc==null)
 	{
-		sc = new HazelcastStorage();
-		//sc = new RedisStorage();
+		//sc = new HazelcastStorage();
+		sc = new RedisStorage();
 		//sc = new GridGainStorage();
 	}
 

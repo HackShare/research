@@ -3,12 +3,14 @@ import HADS.Server.StorageConnector;
 import java.io.*;
 import java.util.*;
 
-class Driver 
+public class Driver 
 {
    public static void main(String args[]) throws IOException 
    {
 	System.out.println("Starting driver...");
 	StorageConnector sc = StorageConnector.getStorage();
+
+	System.out.println("Driver: Pass...");
 
 	Integer k = 0;
 	String v = "Hello World!";
