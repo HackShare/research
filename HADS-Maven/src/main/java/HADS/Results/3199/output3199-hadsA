@@ -1,0 +1,178 @@
+ServI Usage: java ServerImpl file.xml pid localHostName [was... initialCB pctCB resultsFile server1 server2 ...]
+ServI in main: numServers = 5
+ServI in constructor: number of servers = 5
+ServI parameters = numServers=5 {I  200 } {U 2000 } {%  116 } {S   46 }
+ServI current = {sCB   46 } {mxV 2000 } {val  200 } {seW    0 } {toW    0 } {teW    0 } {ptW {    0 } {    0 } {    0 } {    0 } {    0 } }
+ServI  values = { 200 }
+ max_val = { 2000 }
+ pctCB=CBpercent = { 116 }
+ initialCB = { 200 }
+ upperCB = { 2000 }
+ initCB = { 46 }
+ CostBound = { 46 }
+ thisNodeAlloc = { 0 }
+Initializing Hazelcast Cluster...
+Hazelcast: Config set.
+Oct 05, 2015 1:32:34 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: [LOCAL] [dev] [3.5.2] Prefer IPv4 stack is true.
+Oct 05, 2015 1:32:34 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: [LOCAL] [dev] [3.5.2] Picked Address[172.17.42.1]:5701, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=5701], bind any local is true
+Oct 05, 2015 1:32:34 PM com.hazelcast.spi.OperationService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Backpressure is disabled
+Oct 05, 2015 1:32:34 PM com.hazelcast.spi.impl.operationexecutor.classic.ClassicOperationExecutor
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Starting with 2 generic operation threads and 2 partition operation threads.
+Oct 05, 2015 1:32:34 PM com.hazelcast.system
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Hazelcast 3.5.2 (20150826 - ba8dbba) starting at Address[172.17.42.1]:5701
+Oct 05, 2015 1:32:34 PM com.hazelcast.system
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Copyright (c) 2008-2015, Hazelcast, Inc. All Rights Reserved.
+Oct 05, 2015 1:32:34 PM com.hazelcast.instance.Node
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Creating MulticastJoiner
+Oct 05, 2015 1:32:34 PM com.hazelcast.core.LifecycleService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Address[172.17.42.1]:5701 is STARTING
+Oct 05, 2015 1:32:36 PM com.hazelcast.cluster.impl.MulticastJoiner
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] 
+
+
+Members [1] {
+	Member [172.17.42.1]:5701 this
+}
+
+Oct 05, 2015 1:32:36 PM com.hazelcast.core.LifecycleService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Address[172.17.42.1]:5701 is STARTED
+Hazelcast: A node has joined the cluster.
+Hazelcast: Current Cluster Size is 1.
+ServI Server is up and running
+Oct 05, 2015 1:32:39 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:60699
+Oct 05, 2015 1:32:39 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Established socket connection between /172.17.42.1:5701
+Oct 05, 2015 1:32:45 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:41535
+Oct 05, 2015 1:32:45 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Established socket connection between /172.17.42.1:5701
+Oct 05, 2015 1:32:45 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] 
+
+Members [2] {
+	Member [172.17.42.1]:5701 this
+	Member [172.17.42.1]:5702
+}
+
+Oct 05, 2015 1:32:50 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:34178
+Oct 05, 2015 1:32:50 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Established socket connection between /172.17.42.1:5701
+Oct 05, 2015 1:32:51 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] 
+
+Members [3] {
+	Member [172.17.42.1]:5701 this
+	Member [172.17.42.1]:5702
+	Member [172.17.42.1]:5703
+}
+
+Oct 05, 2015 1:32:55 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:43278
+Oct 05, 2015 1:32:55 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] Established socket connection between /172.17.42.1:5701
+Oct 05, 2015 1:32:56 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] 
+
+Members [4] {
+	Member [172.17.42.1]:5701 this
+	Member [172.17.42.1]:5702
+	Member [172.17.42.1]:5703
+	Member [172.17.42.1]:5704
+}
+
+Oct 05, 2015 1:33:01 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5701 [dev] [3.5.2] 
+
+Members [5] {
+	Member [172.17.42.1]:5701 this
+	Member [172.17.42.1]:5702
+	Member [172.17.42.1]:5703
+	Member [172.17.42.1]:5704
+	Member [172.17.42.1]:5705
+}
+
+Temp doTemp id=0, to=hadsE, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=0, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=0, change={ 9 }, max={ 2000 }, val={ 209 }, CB={ 46 }
+Temp doTemp id=1, to=hadsD, oCB={ 46 }, change={ 3 }, nCB={ 49 }
+Temp compCB id=1, oCB={ 49 }, change={ -3 }, nCB={ 46 }
+Perm doCmmt id=1, change={ 3 }, max={ 2000 }, val={ 212 }, CB={ 46 }
+Temp doTemp id=2, to=hadsD, oCB={ 46 }, change={ -7 }, nCB={ 39 }
+Temp compCB id=2, oCB={ 39 }, change={ 7 }, nCB={ 46 }
+Perm doCmmt id=2, change={ -7 }, max={ 2000 }, val={ 205 }, CB={ 46 }
+Temp doTemp id=3, to=hadsD, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=3, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=3, change={ 9 }, max={ 2000 }, val={ 214 }, CB={ 46 }
+Temp doTemp id=4, to=hadsE, oCB={ 46 }, change={ 8 }, nCB={ 54 }
+Temp compCB id=4, oCB={ 54 }, change={ -8 }, nCB={ 46 }
+Perm doCmmt id=4, change={ 8 }, max={ 2000 }, val={ 222 }, CB={ 46 }
+Temp doTemp id=5, to=hadsD, oCB={ 46 }, change={ 3 }, nCB={ 49 }
+Temp compCB id=5, oCB={ 49 }, change={ -3 }, nCB={ 46 }
+Perm doCmmt id=5, change={ 3 }, max={ 2000 }, val={ 225 }, CB={ 46 }
+Temp doTemp id=6, to=hadsB, oCB={ 46 }, change={ -5 }, nCB={ 41 }
+Temp compCB id=6, oCB={ 41 }, change={ 5 }, nCB={ 46 }
+Perm doCmmt id=6, change={ -5 }, max={ 2000 }, val={ 220 }, CB={ 46 }
+Temp doTemp id=7, to=hadsD, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=7, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=7, change={ 9 }, max={ 2000 }, val={ 229 }, CB={ 46 }
+Temp doTemp id=8, to=hadsE, oCB={ 46 }, change={ -6 }, nCB={ 40 }
+Temp compCB id=8, oCB={ 40 }, change={ 6 }, nCB={ 46 }
+Perm doCmmt id=8, change={ -6 }, max={ 2000 }, val={ 223 }, CB={ 46 }
+Temp doTemp id=9, to=hadsA, oCB={ 46 }, change={ -7 }, nCB={ 39 }
+Serv imgRec id=9, wdT=hadsB, CB={ 34 }, change={ -7 }
+Serv sndCmp id=9, to=hadsA, change={ -7 }
+Serv sndCmp id=9, to=hadsD, change={ -7 }
+Serv sndCmp id=9, to=hadsE, change={ -7 }
+Serv sndCmp id=9, to=hadsC, change={ -7 }
+Temp compCB id=9, oCB={ 39 }, change={ 7 }, nCB={ 46 }
+Perm cmtCmp id=9, change={ -7 }, max={ 2000 }, val={ 216 }, CB={ 46 }
+Perm resRec id=9, wdT=hadsB
+Temp doTemp id=10, to=hadsD, oCB={ 46 }, change={ -8 }, nCB={ 38 }
+Temp compCB id=10, oCB={ 38 }, change={ 8 }, nCB={ 46 }
+Perm doCmmt id=10, change={ -8 }, max={ 2000 }, val={ 208 }, CB={ 46 }
+Temp doTemp id=11, to=hadsE, oCB={ 46 }, change={ -7 }, nCB={ 39 }
+Temp compCB id=11, oCB={ 39 }, change={ 7 }, nCB={ 46 }
+Perm doCmmt id=11, change={ -7 }, max={ 2000 }, val={ 201 }, CB={ 46 }
+Temp doTemp id=12, to=hadsE, oCB={ 46 }, change={ -5 }, nCB={ 41 }
+Temp compCB id=12, oCB={ 41 }, change={ 5 }, nCB={ 46 }
+Perm doCmmt id=12, change={ -5 }, max={ 2000 }, val={ 196 }, CB={ 46 }
+Temp doTemp id=13, to=hadsD, oCB={ 46 }, change={ 5 }, nCB={ 51 }
+Temp compCB id=13, oCB={ 51 }, change={ -5 }, nCB={ 46 }
+Perm doCmmt id=13, change={ 5 }, max={ 2000 }, val={ 201 }, CB={ 46 }
+Temp doTemp id=14, to=hadsE, oCB={ 46 }, change={ 4 }, nCB={ 50 }
+Temp compCB id=14, oCB={ 50 }, change={ -4 }, nCB={ 46 }
+Perm doCmmt id=14, change={ 4 }, max={ 2000 }, val={ 205 }, CB={ 46 }
+Temp doTemp id=15, to=hadsB, oCB={ 46 }, change={ 5 }, nCB={ 51 }
+Perm doCmmt id=15, change={ 5 }, max={ 2000 }, val={ 210 }, CB={ 51 }
+Temp doTemp id=16, to=hadsC, oCB={ 51 }, change={ -9 }, nCB={ 42 }
+Perm doCmmt id=16, change={ -9 }, max={ 2000 }, val={ 201 }, CB={ 42 }
+Temp doTemp id=17, to=hadsE, oCB={ 42 }, change={ -7 }, nCB={ 35 }
+Temp compCB id=17, oCB={ 35 }, change={ 7 }, nCB={ 42 }
+Perm doCmmt id=17, change={ -7 }, max={ 2000 }, val={ 194 }, CB={ 42 }
+Temp doTemp id=18, to=hadsE, oCB={ 42 }, change={ -8 }, nCB={ 34 }
+Temp compCB id=18, oCB={ 34 }, change={ 8 }, nCB={ 42 }
+Perm doCmmt id=18, change={ -8 }, max={ 2000 }, val={ 186 }, CB={ 42 }
+Temp doTemp id=19, to=hadsC, oCB={ 42 }, change={ -6 }, nCB={ 36 }
+Temp compCB id=19, oCB={ 36 }, change={ 6 }, nCB={ 42 }
+Perm doCmmt id=19, change={ -6 }, max={ 2000 }, val={ 180 }, CB={ 42 }
+ServI Waiting for transaction number 20 to complete, current is 20
+ServI Transaction number 20 complete, counter=0, current is 20
+ServerI number of times Perm Proc did work = 1
+ServerI number of violations Perm Proc detected = 0
+ServerI number of completes = 5
+ServerI number of completes me = 5
+ServerI number of completes first = 1
+ServerI number of announces = 17
+ServerI number of compensates = 18
+ServerI size childq0 = 0
+ServI Waiting 10 more seconds...
+ServI ...waited 10 more seconds
+ServI writeResultsFile: current = {sCB   42 } {mxV 2000 } {val  180 } {seW    7 } {toW  130 } {teW   14 } {ptW {   14 } {   17 } {    6 } {   44 } {   49 } }
+ServI rec =          9   norm   1444066428852   1444066428937         85   TEMP   1444066428868           hadsB     1   no-u    no-v { 223 } { -7 } { 216 }  
+ServI This server exiting in 10 seconds.
+ServI This server exiting now.

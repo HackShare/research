@@ -1,0 +1,661 @@
+package HADS.Server;
+
+import static HADS.Generator.Statics.*;
+import static HADS.Server.Constants.*;
+import HADS.Server.StorageConnector;
+
+import java.awt.*;
+import java.io.*;
+
+public class PermanentProcessor extends Thread {
+
+  private ServerImpl localServerImpl;
+  private StorageConnector sc;
+
+  private final File coordinatorLog;
+  private final File undoLog;
+  private final File redoLog;
+
+  private boolean canCommit=true;
+  private String lockedBy;
+  private int expectedReplies;
+  private RandomAccessFile commitFile;
+  private RandomAccessFile undoFile;
+  private RandomAccessFile redoFile;
+  private CurrentResources current;
+  private int numResourceTypes;
+  private final int pid;
+  private int numTimesDidWork;
+  private int numViolations;
+
+  public PermanentProcessor(
+    ServerImpl local,
+    CurrentResources current,
+    int pid
+  ) {
+    localServerImpl=local;
+    this.current = current;
+    this.numResourceTypes = current.getNumResourceTypes();
+    this.pid = pid;
+    this.numTimesDidWork = 0;
+    this.numViolations = 0;
+
+    this.coordinatorLog = new File
+      ("/tmp/commit" + pid + "-" + localServerImpl.getMyHN() + ".log");
+    this.undoLog = new File
+      ("/tmp/undo"   + pid + "-" + localServerImpl.getMyHN() + ".log");
+    this.redoLog = new File
+      ("/tmp/redo"   + pid + "-" + localServerImpl.getMyHN() + ".log");
+
+    try { this.setPriority(Thread.MAX_PRIORITY); }
+    catch(Exception e) {
+      System.out.println
+        ("PermP Exception while setting Processor Priority: " + e);
+
+    sc = localServerImpl.getMySC();
+    }
+  }
+
+  public int getNumTimesDidWork() { return numTimesDidWork; }
+
+  public int getNumViolations() { return numViolations; }
+
+  public int getTransactionExpected() {
+    return localServerImpl.parentq.getTransactionIdExpected();
+  }
+
+  public boolean islocked() {
+    return localServerImpl.parentq.isLocked();
+  }
+
+  public boolean isCoordinator() {
+    return localServerImpl.parentq.isCoordinating();
+  }
+
+  // starts the two phase commit protocol
+  public void run() {
+    Transaction p_trans;
+    while(true) {
+      // artificially slowing PermP down for experimentation
+      // try { Thread.sleep(2000); } catch (InterruptedException e) { }
+if (PERMP_PQUEUE_DEBUG_OUTPUT) {
+  System.out.println("PermP run: before waitForTopMatch, parentq="
+    + localServerImpl.parentq + " trans_expected = "
+    + localServerImpl.parentq.getTransactionIdExpected()
+    + " locked = " + localServerImpl.parentq.isLocked()
+    + " coordinating = " + localServerImpl.parentq.isCoordinating());
+}
+      p_trans = localServerImpl.parentq.waitForTopMatched();
+if (PERMP_PQUEUE_DEBUG_OUTPUT) {
+  System.out.println("PermP run: after waitForTopMatch, parentq="
+    + localServerImpl.parentq + " trans_expected="
+    + localServerImpl.parentq.getTransactionIdExpected()
+    + " locked = " + localServerImpl.parentq.isLocked()
+    + " coordinating = " + localServerImpl.parentq.isCoordinating()
+    + ", removed p_trans=" + p_trans);
+}
+        if (p_trans != null) {  // it might be null if interrupted
+          Transaction notice_trans = p_trans.newTransCode(SELECTED_FOR_GLOBAL);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP PermanentProcessor run: p_trans is not null");
+  System.out.println("PermP PermanentProcessor run: notice_trans="
+    + notice_trans);
+}
+          for(int i=0; i<localServerImpl.ServerTable.size();i++) // all but me
+          localServerImpl.ServerExchangeOut(
+            localServerImpl.ServerTable.get(i), notice_trans
+          );
+          int[] change = p_trans.getTransChange();
+          int[] value = current.getValue();
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP PermanentProcessor run: change="
+    + arrayToString(change) + ", value=" + arrayToString(value));
+}
+          try {
+            commitFile=new RandomAccessFile(coordinatorLog,"rw");
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP PermanentProcessor run:"
+    + " writing PRECOMMIT record to coordinator log");
+}
+            commitFile.writeInt(PRECOMMIT);
+            commitFile.writeInt(numResourceTypes);
+            for (int i = 0; i < numResourceTypes; i++) {
+              commitFile.writeInt(change[i]);
+            }
+            for (int i = 0; i < numResourceTypes; i++) {
+              commitFile.writeInt(value[i]);
+            }
+            commitFile.close();
+          } catch(IOException e) {
+            System.out.println (
+              "PermP Exception Ocurred while accessing the Commit file: " + e
+            );
+          }
+          expectedReplies=localServerImpl.ServerTable.size();  // all but me
+          canCommit = true;
+          int tblsize=expectedReplies;
+          Transaction cc_trans = p_trans.newTransCode(CANCOMMIT);
+          cc_trans = cc_trans.newTransChange(change);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP PermanentProcessor run:"
+    + " sending to servers CANCOMMIT cc_trans=" + cc_trans);
+}
+          for(int i=0; i!=tblsize;i++) {
+            localServerImpl.ServerExchangeOut(
+              localServerImpl.getCohort(i),cc_trans
+            );
+          }
+        }//end if ptrans != null
+    }// end while
+  }//end function run()
+
+  public void processCanCommit(Transaction t) {
+    Transaction trans = t.newTransCode(NO);
+    if(!localServerImpl.parentq.tryLockIfNotCoordinating()) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP processCanCommit: This Server cannot Commit,"
+    + " transactionID=" + t.getID());
+}
+      trans = t.newTransCode(NO);
+    } else /* !locked && !coordinating) */ {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP processCanCommit: This Server can Commit,"
+    + " transactionID=" + t.getID());
+}
+      lockedBy=trans.getInitiatingServer();
+      if(!undoLog.exists()) {
+        try{
+          undoFile=new RandomAccessFile(undoLog, "rw");
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP processCanCommit: writing to a new undo log "
+    + arrayToString(current.getValue()));
+}
+          undoFile.writeInt(numResourceTypes);
+          int[] values = current.getValue();
+          if (values.length != numResourceTypes) {
+            throw new RuntimeException(
+              "PermP processCanCommit: values.length != numResourceTypes"
+            );
+          }
+          for (int i = 0; i < numResourceTypes; i++) {
+            undoFile.writeInt(values[i]);
+          }
+          undoFile.close();
+        } catch(IOException e) {
+          System.out.println
+            ("PermP An error occured while accesing undo log File: " + e);
+        }//end catch
+      }//end if !undolog
+      try {
+        redoFile=new RandomAccessFile(redoLog,"rw");
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP processCanCommit: writing to a new redo log "
+    + arrayToString(trans.getTransChange()));
+}
+        redoFile.writeInt(numResourceTypes);
+        int[] changes = trans.getTransChange();
+        if (numResourceTypes != changes.length) {
+          throw new RuntimeException(
+            "PermP processCanCommit: numResourceTypes != changes.length"
+          );
+        }
+        for (int i = 0; i < numResourceTypes; i++) {
+          redoFile.writeInt(changes[i]);
+        }
+        redoFile.close();
+      } catch(IOException e) {
+        System.out.println
+          ("PermP An error occured while accesing redo log File: " + e);
+      }//end catch
+      trans = t.newTransCode(YES);
+    }//end if !locked && ! coordinating
+    localServerImpl.ServerExchangeOut(trans.getInitiatingServer(),trans);
+  }//end method processCanCommit
+
+  public void ReceiveVote(Transaction t) {
+    expectedReplies--;
+    if (canCommit&&(t.getTransCode()==NO)) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP ReceiveVote: NO, server " + t.getFromServer()
+    + ", set canCommit to false");
+}
+      canCommit=false;
+    }//end if
+    if(expectedReplies==0) {
+      int transCode;
+      if (canCommit) {
+        transCode=COMMIT;
+        try {
+          commitFile=new RandomAccessFile(coordinatorLog, "rw");
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println(
+    "PermP ReceiveVote: expectedReplies is zero and canCommit is true,"
+    + "\n writing a COMPLETE record in the coordinator log,"
+    + " transactionID=" + t.getID()
+  );
+}
+          commitFile.seek(0);
+          commitFile.writeInt(COMPLETE);
+          commitFile.close();
+        } catch(IOException e) {
+          System.out.println
+            ("PermP An Error occured while accessing the log File: " + e);
+        }
+      } else {
+        transCode=ABORT;
+        int[] oldValue = new int[numResourceTypes];
+        int[] change = new int[numResourceTypes];
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println(
+    "PermP ReceiveVote: canCommit is false, transactionID=" + t.getID()
+  );
+}
+        try {
+          commitFile=new RandomAccessFile(coordinatorLog,"r");
+          commitFile.seek(0);
+          boolean temp = (commitFile.readInt() == COMPLETE);
+          int x = commitFile.readInt();  // numResourceTypes was written
+          for (int i = 0; i < numResourceTypes; i++) {
+            change[i]=commitFile.readInt();
+          }
+          for (int i = 0; i < numResourceTypes; i++) {
+            oldValue[i]=commitFile.readInt();
+          }
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP ReceiveVote: reading from coordinator log, change="
+    + arrayToString(change) + ", oldValue=" + arrayToString(oldValue));
+}
+          commitFile.close();
+        } catch(IOException e) {
+          System.out.println
+            ("PermP An error occured while accesing redo log File: " + e);
+        }
+        Transaction oldtrans = t.newTransChange(change);
+        // We must now Reinsert the transaction into the parent queue
+        // since it has been aborted this time - so we can try again
+        if (!anyNegative(change)) {
+          oldtrans = oldtrans.newTransCode(INCREASE);
+        } else if (!anyPositive(change)) {
+          oldtrans = oldtrans.newTransCode(DECREASE);
+        } else {
+          oldtrans = oldtrans.newTransCode(MIXTURE);
+        }
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP ReceiveVote: reinsert in parent queue, oldtrans="
+          + oldtrans);
+}
+if (PERMP_PQUEUE_DEBUG_OUTPUT) {
+  System.out.println(
+    "PermP ReceiveVote: before add, transactionID="
+    + oldtrans.getID() + "\n parentq=" + localServerImpl.parentq
+  );
+}
+        localServerImpl.parentq.addTransaction(oldtrans);
+if (PERMP_PQUEUE_DEBUG_OUTPUT) {
+  System.out.println("PermP ReceiveVote: after add, transactionID="
+    + oldtrans.getID() + "\n parentq=" + localServerImpl.parentq);
+}
+        //delete commit log since transaction has been aborted
+        boolean deleted=coordinatorLog.delete();
+        if (!deleted)
+          System.out.println("PermP Coordinator log could not be deleted.");
+        else {
+        }
+      }
+      int tblsize=localServerImpl.ServerTable.size();
+      expectedReplies=tblsize; // reset for responses
+      Transaction comp_trans = t.newTransCode(transCode);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP ReceiveVote:"
+    + " sending to servers " + numToName(transCode)
+    + ", comp_trans=" + comp_trans);
+}
+      for(int i=0;i!=tblsize;i++) {
+        localServerImpl.ServerExchangeOut(
+          localServerImpl.getCohort(i), comp_trans
+        );
+      }
+      if(transCode==ABORT) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println
+    ("PermP ReceiveVote: commit aborted and coordinating complete,"
+    + " transactionID=" + t.getID());
+}
+        localServerImpl.parentq.unCoordinating();
+      }
+    }// end if expected replies ==0
+  }//end method
+
+  public void AbortTrans(Transaction t) {
+    if (localServerImpl.parentq.isLocked()
+        && (lockedBy.equals(t.getInitiatingServer()))) {
+      boolean deleted=redoLog.delete();
+      if(!deleted)
+        System.out.println("PermP ERROR: cannot delete the redo log file");
+      else
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP AbortTrans: commit aborted and lock released,"
+    + " transactionID=" + t.getID());
+}
+      localServerImpl.parentq.unlock();
+    }
+  }
+
+  public void DoCommit(Transaction t) {
+    int[] transChange = new int[numResourceTypes];
+    try {
+      redoFile=new RandomAccessFile(redoLog,"r");
+      redoFile.seek(0);
+      redoFile.readInt();  // numResourceTypes was written
+      for (int i = 0; i < numResourceTypes; i++) {
+        transChange[i] = redoFile.readInt();
+      }
+      redoFile.close();
+    } catch(IOException e) {
+      System.out.println
+        ("PermP An error occurred while accessing the redo Log File:" + e);
+    }
+    boolean violate = (current.changeValue(transChange, t.isDonation()) != null);
+
+    if(!violate)
+    {
+            int[] updatedServerCB = current.getServerCostBound();
+            for(int i = 0; i < current.getNumResourceTypes(); i++)
+            {
+		Integer index = (Integer) i;
+		if(sc==null)
+		{
+			sc = localServerImpl.getMySC();
+		}
+                sc.put(index, updatedServerCB[i]);
+            }
+    }
+
+    t = t.newViolation(violate);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP DoCommit: transaction_id="
+    + t.getID() + ", changeValue by "+ arrayToString(transChange));
+}
+    if (t.getViolation()) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP DoCommit: violation, transactionID=" + t.getID());
+}
+    } else {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP setCBtoPermAdjustedCB:\n current = " + current);
+}
+    }
+if (ALWAYS_PRINT_DEBUG_OUTPUT) {
+System.out.println("PermP DoCommit: age=" + age()
++ ", transactionID=" + t.getID()
++ "\n transaction= " + t + "\n current= " + current);
+}
+if (MINIMAL_PRINT_DEBUG_OUTPUT) {
+System.out.println(
+    "Perm doCmmt id=" + t.getID()
+  + ", change=" + arrayToString(t.getTransChange())
+  + ", max=" + arrayToString(current.getMaxValue())
+  + ", val=" + arrayToString(current.getValue())
+  + ", CB=" + arrayToString(current.getServerCostBound())
+  + (t.isDonation()?", DONATION":"")
+  + (t.getViolation()?", VIOLATION":"")
+);
+}
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP DoCommit: Transaction Committed,"
+  + " transactionID=" + t.getID());
+}
+    try {
+      undoFile=new RandomAccessFile(undoLog,"rw");
+      undoFile.seek(0);
+      undoFile.writeInt(numResourceTypes);
+      int[] values = current.getValue();
+      if (values.length != numResourceTypes) {
+        throw new RuntimeException(
+          "PermP processCanCommit: values.length != numResourceTypes"
+        );
+      }
+      for (int i = 0; i < numResourceTypes; i++) {
+        undoFile.writeInt(values[i]);
+      }
+      undoFile.close();
+    } catch(IOException e) {
+      System.out.println
+        ("PermP An error occurred while accessing the undo Log File:" + e);
+    }
+    boolean deleted=redoLog.delete();
+    if (!deleted) {
+      System.out.println("PermP Error: cannot delete the redo log file");
+    } else {
+    }
+    Transaction CD_trans = t.newTransCode(COMMITDONE);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println(
+    "PermP DoCommit: sending COMMITDONE to initiating server="
+    + CD_trans.getInitiatingServer() + ", CD_trans=" + CD_trans
+  );
+}
+    localServerImpl.ServerExchangeOut(CD_trans.getInitiatingServer(),CD_trans);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP DoCommit: COMMITDONE and lock released,"
+    + " transactionID=" + t.getID());
+}
+//  locked=false;   // should these be reversed?  I think so but not done yet.
+    localServerImpl.parentq.unlock();
+    localServerImpl.parentq.incTransactionIdExpected();
+  }
+
+  public void commitCompleted(Transaction t) {
+    expectedReplies--;
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: expectedReplies="
+    + expectedReplies + ", t=" + t);
+}
+    if(expectedReplies == 0) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: expectedReplies is zero");
+}
+      Transaction trans;
+      int[] savedChange = new int[numResourceTypes];
+      try{
+        commitFile = new RandomAccessFile(coordinatorLog, "r");
+        commitFile.seek(0);
+        boolean temp = (commitFile.readInt() == COMPLETE);
+        int x = commitFile.readInt();  // numResourceTypes was written
+        for (int i = 0; i < numResourceTypes; i++) {
+          savedChange[i] = commitFile.readInt();
+        }
+        commitFile.close();
+      } catch(IOException e) {
+        System.out.println(
+          "PermP An error occurred while accessing the coordinator Log File:"
+          + e
+        );
+      }
+      int valueBefore[] = current.getValue();
+      boolean violate
+        = (current.changeValue(savedChange, t.isDonation()) != null);
+      int valueAfter[] = current.getValue();
+      trans = t.newViolation(violate);
+      ResultRecord old_rec=new ResultRecord(trans);
+      ResultRecord rec = old_rec.newValues(valueBefore, valueAfter);
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: transaction_id="
+    + trans.getID() + ", changeValue by "+ arrayToString(savedChange));
+}
+      if (trans.getViolation()) {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: violation,"
+    + " transactionID=" + t.getID());
+}
+        numViolations++;
+      } else {
+       if (!trans.isDonation()) {
+         current.adjustServerWork(trans.getTransChange());
+         numTimesDidWork++;
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP setCBtoPermAdjustedCB and adjustServerWork:"
+    + "\n current = " + current);
+}
+       }
+      }
+if (ALWAYS_PRINT_DEBUG_OUTPUT) {
+System.out.println("PermP commitCompleted: age=" + age()
++ ", transactionID=" + trans.getID()
++ "\n transaction= " + trans + "\n current= " + current);
+}
+if (MINIMAL_PRINT_DEBUG_OUTPUT) {
+System.out.println(
+    "Perm cmtCmp id=" + trans.getID()
+  + ", change=" + arrayToString(trans.getTransChange())
+  + ", max=" + arrayToString(current.getMaxValue())
+  + ", val=" + arrayToString(current.getValue())
+  + ", CB=" + arrayToString(current.getServerCostBound())
+  + (t.isDonation()?", DONATION":"")
+  + (trans.getViolation()?", VIOLATION":"")
+);
+}
+      //delete the commit log because the transaction has been completed
+      boolean deleted = coordinatorLog.delete();
+      if (!deleted)
+        System.out.println("PermP ERROR:Cannot delete coordinator log file");
+      else {
+      }
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: Two Phase Commit Complete"
+    + ", Transaction ID=" + trans.getID());
+  System.out.println("PermP commitCompleted: transaction=" + trans.getTR());
+  System.out.println("PermP commitCompleted: current=" + current);
+}
+      localServerImpl.parentq.unCoordinating();
+      long com_time=System.currentTimeMillis();
+      rec = rec.newOut(com_time);  // also sets response time
+      //Tell children who completed temp that Global processing is complete
+      //so that they may adjust their CB
+      ImageRecord img = ImageRecord.newDefaults(rec.returnId());
+      ImageRecord ir = localServerImpl.Images.indexOfAndGet(img);
+      if (ir != null) {
+      //i.e. Temp Processing was Completed at at least 1 node
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: the image is: " + ir
+    + "\n transactionID=" + t.getID());
+}
+        // sets field TempProcesses to true
+        rec = rec.newTempTimeOut(
+          ir.getTempTimeCompleted(),
+          ir.getWhoDidTemp(),
+          ir.getWhoDidTempIndex()
+        );
+        trans = trans.newWhoDidTemp(
+          rec.getWhoDidTemp(),
+          rec.getWhoDidTempIndex()
+        );  // added 20081126
+if (ALWAYS_PRINT_DEBUG_OUTPUT) {
+System.out.println("PermP commitCompleted: transactionID=" + trans.getID()
++ " done optimistically by " + trans.getWhoDidTemp()
++ "\n ir=" + ir);
+}
+if (MINIMAL_PRINT_DEBUG_OUTPUT) {
+System.out.println(
+    "Perm resRec id=" + trans.getID()
+  + ", wdT=" + trans.getWhoDidTemp()
+  + (trans.getViolation()?", VIOLATION":"")
+);
+}
+        //only condition under which Permeanet Processor needs to do adjustment
+        // This would mean that temporary processing had no violations
+        if (!ir.getViolation()) {
+          // tempP was able to do it without violation
+          // but PermP might say violation
+          if (trans.getViolation()) rec = rec.newUndoRequired();
+          trans = trans.newTransCode(GLOBAL_COMPLETE);
+          // Call CurrentResources method to update ptempWork[][]
+          // now that trans has whoDidTemp inside it.
+          current.adjustPtempWork(
+            trans.getWhoDidTempIndex(), trans.getTransChange()
+          );
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: sending GLOBAL_COMPLETE"
+    + ", trans=" + trans);
+}
+          for (int i = 0; i < localServerImpl.ServerTable.size(); i++)
+            localServerImpl.ServerExchangeOut(
+              localServerImpl.ServerTable.get(i), trans
+            );
+        }
+      } else {
+if (PERMP_BASIC_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: the image is null,"
+    + " transactionID=" + t.getID());
+}
+        // no one did temp, i.e., "Unknown", but check to make sure
+        if (!trans.getWhoDidTemp().contains("Unknown")) {
+          throw new RuntimeException(
+            "PermP commitCompleted: who did temp should be unknown but is not,"
+            + trans.getWhoDidTemp()
+          );
+        } else {
+          int [] change = trans.getTransChange();
+if (TEMPP_COMPN_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted:"
+    + " no temp done so charge to parent unless violation,"
+    + " transactionID=" + trans.getID() + " violation=" + trans.getViolation()
+    + " change=" + arrayToString(change)
+    + " before sCB=" + arrayToString(current.getServerCostBound())
+  );
+}
+          if (!trans.getViolation() && !trans.isDonation()) {
+            // SJH 20090811 Add check that this is not a donation.
+            // SJH 20090720 I don't know why this is done if I ever did.
+            // It reduces tempWork by abs(change) with a -= operation
+            // When this is called in TempP, the polarity is already
+            // reversed.
+            // Finally, I remembered, but it needs a fix to keep tempWork
+            // from being reduced when called from PermP here, hence
+            // passing a new value, true.
+            // SJH 20090722 Here is what I remembered.  When a trans
+            // is committed but not done by any TempP then some TempP's
+            // CB has to be changed else a resource is going to be handed
+            // out twice, so we pick the trans parent's TempP CB to be
+            // charged.  In other words, for every committed trans,
+            // some TempP's CB has to be changed to reflect the perm
+            // change.  Think about what would happen if the TempPs
+            // did not start operating until after the first 100 trans
+            // had been processed by the PermPs.  If no TempP did a
+            // trans opt then pick one, e.g., the parent to pretend its
+            // TempP did it opt.  The reason for using
+            // compensateWithinBoundsCB instead of changeCB() is that the
+            // former always changes CB, keeping inside [0,maxValue], but
+            // the latter makes no changes unless they will be inside
+            // [0,maxValue].
+            int[] old_CB = current.getServerCostBound();
+            current.compensateWithinBoundsCB(change, /* permP = */ true);
+if (MINIMAL_PRINT_DEBUG_OUTPUT) {
+System.out.println(
+    "Perm noTemp id=" + t.getID()
+  + ", oCB=" + arrayToString(old_CB)
+  + ", change=" + arrayToString(t.getTransChange())
+  + ", nCB=" + arrayToString(current.getServerCostBound())
+);
+}
+if (TEMPP_COMPN_DEBUG_OUTPUT) {
+  System.out.println("PermP commitCompleted: no temp done so charged to parent,"
+    + " transactionID=" + t.getID()
+    + " after sCB=" + arrayToString(current.getServerCostBound())
+  );
+}
+          }
+        }
+      }
+if (ALWAYS_PRINT_DEBUG_OUTPUT) {
+System.out.println("PermP commitCompleted: trans_expected="
+  + localServerImpl.parentq.getTransactionIdExpected()
++ ", transactionID=" + trans.getID()
++ "\n record details= " + rec.dump()
++ "\n trans= " + trans);
+}
+      localServerImpl.resultsList.replace(old_rec, rec);
+      localServerImpl.parentq.incTransactionIdExpected();
+    }//end if expected replies ==0
+  }
+}

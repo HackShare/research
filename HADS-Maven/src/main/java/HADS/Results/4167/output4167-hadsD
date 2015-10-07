@@ -1,0 +1,157 @@
+ServI Usage: java ServerImpl file.xml pid localHostName [was... initialCB pctCB resultsFile server1 server2 ...]
+ServI in main: numServers = 5
+ServI in constructor: number of servers = 5
+ServI parameters = numServers=5 {I  200 } {U 2000 } {%  116 } {S   46 }
+ServI current = {sCB   46 } {mxV 2000 } {val  200 } {seW    0 } {toW    0 } {teW    0 } {ptW {    0 } {    0 } {    0 } {    0 } {    0 } }
+ServI  values = { 200 }
+ max_val = { 2000 }
+ pctCB=CBpercent = { 116 }
+ initialCB = { 200 }
+ upperCB = { 2000 }
+ initCB = { 46 }
+ CostBound = { 46 }
+ thisNodeAlloc = { 0 }
+Initializing GridGain Cluster...
+log4j:WARN No appenders could be found for logger (org.apache.ignite.internal.util.typedef.G).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[13:40:40]    __________  ________________ 
+[13:40:40]   /  _/ ___/ |/ /  _/_  __/ __/ 
+[13:40:40]  _/ // (7 7    // /  / / / _/   
+[13:40:40] /___/\___/_/|_/___/ /_/ /___/  
+[13:40:40] 
+[13:40:40] ver. 1.3.0-incubating#20150710-sha1:2ade6d00
+[13:40:40] 2015 Copyright(C) Apache Software Foundation
+[13:40:40] 
+[13:40:40] Ignite documentation: http://ignite.incubator.apache.org
+[13:40:40] 
+[13:40:40] Quiet mode.
+[13:40:40]   ^-- To see **FULL** console log here add -DIGNITE_QUIET=false or "-v" to ignite.{sh|bat}
+[13:40:40] 
+[13:40:40] Initial heap size is 61MB (should be no less than 512MB, use -Xms512m -Xmx512m).
+[13:40:40] Configured plugins:
+[13:40:40]   ^-- None
+[13:40:40] 
+[13:40:44] Performance suggestions for grid  (fix if possible)
+[13:40:44] To disable, set -DIGNITE_PERFORMANCE_SUGGESTIONS_DISABLED=true
+[13:40:44]   ^-- Decrease number of backups (set 'keyBackups' to 0)
+[13:40:44] 
+[13:40:44] To start Console Management & Monitoring run ignitevisorcmd.{sh|bat}
+[13:40:44] 
+[13:40:44] Ignite node started OK (id=3980dc76)
+[13:40:44] Topology snapshot [ver=4, server nodes=4, client nodes=0, CPUs=2, heap=3.4GB]
+ServI Server is up and running
+[13:40:46] Topology snapshot [ver=5, server nodes=5, client nodes=0, CPUs=2, heap=4.3GB]
+[13:40:50] New version is available at ignite.incubator.apache.org: 1.4.0
+Temp doTemp id=0, to=hadsE, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=0, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=0, change={ 9 }, max={ 2000 }, val={ 209 }, CB={ 46 }
+Temp doTemp id=1, to=hadsD, oCB={ 46 }, change={ 3 }, nCB={ 49 }
+Serv imgRec id=1, wdT=hadsD, CB={ 49 }, change={ 3 }
+Serv sndCmp id=1, to=hadsA, change={ 3 }
+Serv sndCmp id=1, to=hadsE, change={ 3 }
+Serv sndCmp id=1, to=hadsC, change={ 3 }
+Serv sndCmp id=1, to=hadsB, change={ 3 }
+Perm cmtCmp id=1, change={ 3 }, max={ 2000 }, val={ 212 }, CB={ 49 }
+Perm resRec id=1, wdT=hadsD
+Temp doTemp id=2, to=hadsD, oCB={ 49 }, change={ -7 }, nCB={ 42 }
+Serv imgRec id=2, wdT=hadsD, CB={ 42 }, change={ -7 }
+Serv sndCmp id=2, to=hadsA, change={ -7 }
+Serv sndCmp id=2, to=hadsC, change={ -7 }
+Serv sndCmp id=2, to=hadsE, change={ -7 }
+Perm cmtCmp id=2, change={ -7 }, max={ 2000 }, val={ 205 }, CB={ 42 }
+Perm resRec id=2, wdT=hadsD
+Temp doTemp id=3, to=hadsD, oCB={ 42 }, change={ 9 }, nCB={ 51 }
+Serv imgRec id=3, wdT=hadsD, CB={ 51 }, change={ 9 }
+Serv sndCmp id=3, to=hadsA, change={ 9 }
+Serv sndCmp id=3, to=hadsB, change={ 9 }
+Serv sndCmp id=3, to=hadsC, change={ 9 }
+Serv sndCmp id=3, to=hadsE, change={ 9 }
+Perm cmtCmp id=3, change={ 9 }, max={ 2000 }, val={ 214 }, CB={ 51 }
+Perm resRec id=3, wdT=hadsD
+Temp doTemp id=4, to=hadsE, oCB={ 51 }, change={ 8 }, nCB={ 59 }
+Temp compCB id=4, oCB={ 59 }, change={ -8 }, nCB={ 51 }
+Perm doCmmt id=4, change={ 8 }, max={ 2000 }, val={ 222 }, CB={ 51 }
+Temp doTemp id=5, to=hadsD, oCB={ 51 }, change={ 3 }, nCB={ 54 }
+Serv imgRec id=5, wdT=hadsD, CB={ 54 }, change={ 3 }
+Serv sndCmp id=5, to=hadsA, change={ 3 }
+Serv sndCmp id=5, to=hadsB, change={ 3 }
+Serv sndCmp id=5, to=hadsC, change={ 3 }
+Serv sndCmp id=5, to=hadsE, change={ 3 }
+Perm cmtCmp id=5, change={ 3 }, max={ 2000 }, val={ 225 }, CB={ 54 }
+Perm resRec id=5, wdT=hadsD
+Temp doTemp id=6, to=hadsB, oCB={ 54 }, change={ -5 }, nCB={ 49 }
+Temp compCB id=6, oCB={ 49 }, change={ 5 }, nCB={ 54 }
+Perm doCmmt id=6, change={ -5 }, max={ 2000 }, val={ 220 }, CB={ 54 }
+Temp doTemp id=7, to=hadsD, oCB={ 54 }, change={ 9 }, nCB={ 63 }
+Serv imgRec id=7, wdT=hadsD, CB={ 63 }, change={ 9 }
+Serv sndCmp id=7, to=hadsA, change={ 9 }
+Serv sndCmp id=7, to=hadsB, change={ 9 }
+Serv sndCmp id=7, to=hadsC, change={ 9 }
+Serv sndCmp id=7, to=hadsE, change={ 9 }
+Perm cmtCmp id=7, change={ 9 }, max={ 2000 }, val={ 229 }, CB={ 63 }
+Perm resRec id=7, wdT=hadsD
+Temp doTemp id=8, to=hadsE, oCB={ 63 }, change={ -6 }, nCB={ 57 }
+Temp compCB id=8, oCB={ 57 }, change={ 6 }, nCB={ 63 }
+Perm doCmmt id=8, change={ -6 }, max={ 2000 }, val={ 223 }, CB={ 63 }
+Perm doCmmt id=9, change={ -7 }, max={ 2000 }, val={ 216 }, CB={ 63 }
+Temp doTemp id=10, to=hadsD, oCB={ 63 }, change={ -8 }, nCB={ 55 }
+Serv imgRec id=10, wdT=hadsD, CB={ 55 }, change={ -8 }
+Serv sndCmp id=10, to=hadsC, change={ -8 }
+Serv sndCmp id=10, to=hadsE, change={ -8 }
+Perm cmtCmp id=10, change={ -8 }, max={ 2000 }, val={ 208 }, CB={ 55 }
+Perm resRec id=10, wdT=hadsD
+Temp doTemp id=11, to=hadsE, oCB={ 55 }, change={ -7 }, nCB={ 48 }
+Temp compCB id=11, oCB={ 48 }, change={ 7 }, nCB={ 55 }
+Perm doCmmt id=11, change={ -7 }, max={ 2000 }, val={ 201 }, CB={ 55 }
+Perm doCmmt id=12, change={ -5 }, max={ 2000 }, val={ 196 }, CB={ 55 }
+Temp doTemp id=13, to=hadsD, oCB={ 55 }, change={ 5 }, nCB={ 60 }
+Serv imgRec id=13, wdT=hadsA, CB={ 60 }, change={ 5 }
+Serv sndCmp id=13, to=hadsD, change={ 5 }
+Serv sndCmp id=13, to=hadsB, change={ 5 }
+Temp compCB id=13, oCB={ 60 }, change={ -5 }, nCB={ 55 }
+Serv sndCmp id=13, to=hadsC, change={ 5 }
+Serv sndCmp id=13, to=hadsE, change={ 5 }
+Perm cmtCmp id=13, change={ 5 }, max={ 2000 }, val={ 201 }, CB={ 55 }
+Perm resRec id=13, wdT=hadsA
+Temp doTemp id=14, to=hadsE, oCB={ 55 }, change={ 4 }, nCB={ 59 }
+Temp compCB id=14, oCB={ 59 }, change={ -4 }, nCB={ 55 }
+Perm doCmmt id=14, change={ 4 }, max={ 2000 }, val={ 205 }, CB={ 55 }
+Temp doTemp id=15, to=hadsB, oCB={ 55 }, change={ 5 }, nCB={ 60 }
+Temp compCB id=15, oCB={ 60 }, change={ -5 }, nCB={ 55 }
+Perm doCmmt id=15, change={ 5 }, max={ 2000 }, val={ 210 }, CB={ 55 }
+Temp doTemp id=16, to=hadsC, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Temp compCB id=16, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Perm doCmmt id=16, change={ -9 }, max={ 2000 }, val={ 201 }, CB={ 55 }
+Temp doTemp id=17, to=hadsE, oCB={ 55 }, change={ -7 }, nCB={ 48 }
+Temp compCB id=17, oCB={ 48 }, change={ 7 }, nCB={ 55 }
+Perm doCmmt id=17, change={ -7 }, max={ 2000 }, val={ 194 }, CB={ 55 }
+Temp doTemp id=18, to=hadsE, oCB={ 55 }, change={ -8 }, nCB={ 47 }
+Temp compCB id=18, oCB={ 47 }, change={ 8 }, nCB={ 55 }
+Perm doCmmt id=18, change={ -8 }, max={ 2000 }, val={ 186 }, CB={ 55 }
+Temp doTemp id=19, to=hadsC, oCB={ 55 }, change={ -6 }, nCB={ 49 }
+Temp compCB id=19, oCB={ 49 }, change={ 6 }, nCB={ 55 }
+Perm doCmmt id=19, change={ -6 }, max={ 2000 }, val={ 180 }, CB={ 55 }
+ServI Waiting for transaction number 20 to complete, current is 20
+ServI Transaction number 20 complete, counter=0, current is 20
+ServerI number of times Perm Proc did work = 7
+ServerI number of violations Perm Proc detected = 0
+ServerI number of completes = 32
+ServerI number of completes me = 32
+ServerI number of completes first = 7
+ServerI number of announces = 13
+ServerI number of compensates = 12
+ServerI size childq0 = 0
+ServI Waiting 10 more seconds...
+ServI ...waited 10 more seconds
+ServI writeResultsFile: current = {sCB   55 } {mxV 2000 } {val  180 } {seW   44 } {toW  130 } {teW   39 } {ptW {   23 } {   17 } {    6 } {   39 } {   45 } }
+ServI rec =          1   norm   1444066861131   1444066861220         89   TEMP   1444066861163           hadsD     3   no-u    no-v { 209 } { 3 } { 212 }  
+ServI rec =          2   norm   1444066861739   1444066861791         52   TEMP   1444066861742           hadsD     3   no-u    no-v { 212 } { -7 } { 205 }  
+ServI rec =          3   norm   1444066862604   1444066862647         43   TEMP   1444066862606           hadsD     3   no-u    no-v { 205 } { 9 } { 214 }  
+ServI rec =          5   norm   1444066864737   1444066864781         44   TEMP   1444066864738           hadsD     3   no-u    no-v { 222 } { 3 } { 225 }  
+ServI rec =          7   norm   1444066866416   1444066866455         39   TEMP   1444066866418           hadsD     3   no-u    no-v { 220 } { 9 } { 229 }  
+ServI rec =         10   norm   1444066869689   1444066869733         44   TEMP   1444066869692           hadsD     3   no-u    no-v { 216 } { -8 } { 208 }  
+ServI rec =         13   norm   1444066871789   1444066871874         85   TEMP   1444066871820           hadsA     0   no-u    no-v { 196 } { 5 } { 201 }  
+ServI This server exiting in 10 seconds.
+ServI This server exiting now.
+[13:42:37] Ignite node stopped OK [uptime=00:01:52:485]
