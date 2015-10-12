@@ -20,3 +20,9 @@ Maven built project testing the basic distributed data structures of Hazelcast, 
 Integration between COPAR and 3 different in-memory grid storage systems including Hazelcast, Redisson, and Gridgain.
   
   Includes: Hazelcast/Redis/Gridgain Storage, Maven POM, COPAR Simulation
+
+**./DockerImages/test**
+
+Combines the previous test-app and adds an additional layer including Docker so we may run the application in a container.
+  
+  Includes: ./test-app, Dockerfile, additional shell files
