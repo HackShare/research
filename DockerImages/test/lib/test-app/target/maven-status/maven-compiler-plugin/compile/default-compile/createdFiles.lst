@@ -1,0 +1,5 @@
+HADS/Server/StorageConnector.class
+HADS/Server/RedisStorage.class
+Driver.class
+HADS/Server/HazelcastStorage.class
+HADS/Server/GridGainStorage.class
