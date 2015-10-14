@@ -1,5 +1,0 @@
-#!/bin/bash
-cd $HOME/$HOMEDIR
-echo "pwd=`pwd`"
-
-java -jar target/test-app-1.0-SNAPSHOT.jar
