@@ -1,6 +1,3 @@
-test-app
+research/test-app
 *.class
 *.java~
-
-# Package Files #
-*.jar
