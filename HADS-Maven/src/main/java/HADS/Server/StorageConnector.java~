@@ -4,8 +4,8 @@ public abstract class StorageConnector {
 
   private static StorageConnector sc = null;
   //private static final String TYPE = "HAZEL";
-  private static final String TYPE = "REDIS";
-  //private static final String TYPE = "GRID";
+  //private static final String TYPE = "REDIS";
+  private static final String TYPE = "GRID";
 
   /*
   * Gets the storage we would like to use. This can be Hazelcast/Redis/Gridgain
@@ -33,7 +33,7 @@ public abstract class StorageConnector {
 
 	return sc;
   }
-
+fk
    /*
   * Certain memory grids take a little longer for start up
   * With the use of COPAR we must wait for all the nodes to be up and ready before we can start generating transactions

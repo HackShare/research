@@ -12,13 +12,9 @@ cp XML/$1.xml XML/$FILE
 for i in 10.0.2.15; do scp XML/$1.xml $i:HADS/XML/$FILE; done
 for i in 10.0.2.15; do ssh $i ls -l HADS/XML/$FILE; done
 
-#cd $HOME/HADS-Maven
 pwd
-#START_TIME=$SECONDS
-time java -jar ../../../../target/HADS-Maven-1.0-SNAPSHOT.jar XML/$FILE
-#RUN_TIME=$(($SECONDS-START_TIME))
-#echo Runtime: $RUN_TIME seconds
-#java -jar target/HADS-Maven-1.0-SNAPSHOT.jar src/main/java/HADS/XML/$FILE
+
+time java -cp ../../../../target/HADS-Maven-1.0-SNAPSHOT.jar RunHADS XML/$FILE
 
 echo "rm XML/$FILE"
 rm -f XML/$FILE

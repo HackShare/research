@@ -152,49 +152,61 @@ public class TransGenerator {
 
     try{
       Batch=new PrintWriter(new BufferedWriter(new FileWriter(current_batch)));
-// need a parameter for average number of transactions between donations
-// like the average time between transactions
-      for(int i = 0; i < number; ++i) {
-        long thisTime = (long) (2*delay*randGen.nextDouble());
+	// need a parameter for average number of transactions between donations
+	// like the average time between transactions
+      for(int i = 0; i < number; ++i) 
+      {
+      	long thisTime = (long) (2*delay*randGen.nextDouble());
         Thread.sleep(thisTime);
         // Determine if a donation.  Zero donation interval means none ever.
         // Positive donation interval means the probability that this
         // transaction is a donation is 1/(donation interval).
-        if (donationInterval <= 0) {
-          donation = false;
-        } else {
-          donation = (0L == ((long) (randGen.nextDouble()*donationInterval)));
+        if (donationInterval <= 0) 
+	{
+        	donation = false;
+        } 
+	else 
+	{
+	        donation = (0L == ((long) (randGen.nextDouble()*donationInterval)));
         }
         // Determine if we have reached an interval where decrement and
         // increment ratios are switched for a while
-        if (flipDecIncInterval <= 0) {
-          flipDecInc = false;
-        } else {
-          if ( (i > 0) && ((i % flipDecIncInterval) == 0)) {
-            flipDecInc = !flipDecInc;
-            System.out.println("flipDecInc is now " + flipDecInc);
-          }
+        if (flipDecIncInterval <= 0) 
+	{
+        	flipDecInc = false;
+        } 
+	else 
+	{
+        	if ( (i > 0) && ((i % flipDecIncInterval) == 0)) 
+		{
+            		flipDecInc = !flipDecInc;
+            		System.out.println("flipDecInc is now " + flipDecInc);
+          	}
         }
         //Determining which server the transaction is to be sent to
-// Check this!  The `1 +' below might be wrong as it was
-// for the decrease and increase ratios in the transaction factory.
+	// Check this!  The `1 +' below might be wrong as it was
+	// for the decrease and increase ratios in the transaction factory.
         int rand_val = 1 + (int)(randGen.nextDouble()*ratioTotal);
         int upper=0;
         int lower=1;
         int server_pos=0;
-        for(int j = 0; j < numServers; j++) {
-          upper += Ratios.get(j);
-          if(rand_val >= lower && rand_val <= upper) {
-            server_pos=j;
-            break;
-          } else lower=1+upper;
+        for(int j = 0; j < numServers; j++) 
+	{
+        	upper += Ratios.get(j);
+          	if(rand_val >= lower && rand_val <= upper) 
+		{
+            		server_pos=j;
+            		break;
+          	} 
+		else 
+			lower=1+upper;
         }
         numSentServer[server_pos]++;
         String init_server_name = ServerObjNames.get(server_pos);
         Server initializing_server = (Server) Naming.lookup(init_server_name);
         TransactionRequest tr = null;
         System.out.println("current = " + current.toString());
-// need to add donation argument
+	// need to add donation argument
         tr = trf.generateOne(
           i, init_server_name, server_pos, donation, flipDecInc
         );

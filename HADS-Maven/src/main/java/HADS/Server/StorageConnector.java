@@ -3,9 +3,9 @@ package HADS.Server;
 public abstract class StorageConnector {
 
   private static StorageConnector sc = null;
-  private static final String TYPE = "HAZEL";
+  //private static final String TYPE = "HAZEL";
   //private static final String TYPE = "REDIS";
-  //private static final String TYPE = "GRID";
+  private static final String TYPE = "GRID";
 
   /*
   * Gets the storage we would like to use. This can be Hazelcast/Redis/Gridgain

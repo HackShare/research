@@ -30,12 +30,6 @@ public class GridGainStorage extends StorageConnector
 		}
 	}
 
-	public static int genDelay();
-	{
-		int wait = 2;
-		return wait;
-	}
-
 	public Object put(Object K, Object V)
 	{
 		IgniteCache<Object, Object> cache = ignite.getOrCreateCache("cache");

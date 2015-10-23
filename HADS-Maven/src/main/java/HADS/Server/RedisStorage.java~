@@ -16,6 +16,7 @@ public class RedisStorage extends StorageConnector
 {
 
 	public Redisson redisson;
+	private int port = 6379;
 
 	public RedisStorage()
 	{
@@ -26,6 +27,23 @@ public class RedisStorage extends StorageConnector
 	{
 		try {
 			System.out.println("Initializing Redisson Cluster...");
+
+			String[] arguments = new String[8];
+			arguments[0] = "xterm";
+		        arguments[1] = "-T";
+			arguments[2] = "Redis-Server;
+		        arguments[3] = "-hold";
+		        arguments[4] = "-e";
+		        arguments[5] = SHELL;  
+			arguments[6] = SHELL_FLAGS;
+		        Process p;
+			
+		  	arguments[7] = "ssh "
+		    		+ currentServer + " 'cd ~/temp; CLASSPATH=" + CLASSPATH
+		    		+ " java HADS.Server.ServerImpl ../HADS/" + XML_FILE_NAME
+		    		+ " " + PID + " " + currentServer + " " + CLASSPATH + " " + SHELL + " " 
+		    		+ SHELL_FLAGS + " " + OUTPUT_PREFIX
+		    		+ " 2>&1 &'; echo 'past ssh to server'";
 
         		String redisAddress = System.getProperty("redisAddress");
 			System.out.println("Redis: Address is set to " + redisAddress);
@@ -51,12 +69,6 @@ public class RedisStorage extends StorageConnector
 			e.printStackTrace();
 			return false;
 		}
-	}
-
-	public static int genDelay();
-	{
-		int wait = 0; //server should be up and running already
-		return wait;
 	}
 
 	public Object put(Object K, Object V)

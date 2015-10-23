@@ -540,40 +540,42 @@ if (SERVI_BASIC_DEBUG_OUTPUT) {
     try {
       long timestamp = System.currentTimeMillis();
       Transaction trans = new Transaction(id, code, MyHostName, tr, timestamp);
-if (SERVI_BASIC_DEBUG_OUTPUT) {
-  System.out.println("ServI RequestProcessor: tr=" + tr
-    + "\n and trans=" + trans);
-}
-      //add transaction to the parent queue;
-if (SERVI_PQUEUE_DEBUG_OUTPUT) {
-  System.out.println("ServI RequestProcessor: before add, transactionID="
-    + trans.getID() + "\n parentq=" + parentq);
-}
-      parentq.addTransaction(trans);
-if (SERVI_PQUEUE_DEBUG_OUTPUT) {
-  System.out.println("ServI RequestProcessor: after add, transactionID="
-    + trans.getID() + "\n parentq=" + parentq);
-}
-      new_rec=new ResultRecord(trans);
-      resultsList.add(new_rec);
-      //set the transaction code for temporary processing
-      if (code == DONATION)       {  tc = TEMP_DONATION; }
-      else if (code == INCREASE)  {  tc = TEMP_INCREASE; }
-      else if (code == DECREASE)  {  tc = TEMP_DECREASE; }
-      else if (code == MIXTURE)   {  tc = TEMP_MIXTURE;  }
-      Transaction t = trans.newTransCode(tc);
-      if (!t.isDonation()) {
-if (SERVI_CQUEUE_DEBUG_OUTPUT) {
-  System.out.println("ServI RequestProcessor: before put, childq0=" + childq0
-    + "\n adding t=" + t);
-}
-// If a donation, do not put in childq0
+	if (SERVI_BASIC_DEBUG_OUTPUT) {
+	  System.out.println("ServI RequestProcessor: tr=" + tr
+	    + "\n and trans=" + trans);
+	}
+      	//add transaction to the parent queue;
+	if (SERVI_PQUEUE_DEBUG_OUTPUT) {
+	  System.out.println("ServI RequestProcessor: before add, transactionID="
+	    + trans.getID() + "\n parentq=" + parentq);
+	}
+
+      	parentq.addTransaction(trans);
+
+	if (SERVI_PQUEUE_DEBUG_OUTPUT) {
+	  System.out.println("ServI RequestProcessor: after add, transactionID="
+	    + trans.getID() + "\n parentq=" + parentq);
+	}
+      	new_rec=new ResultRecord(trans);
+      	resultsList.add(new_rec);
+      	//set the transaction code for temporary processing
+      	if (code == DONATION)       {  tc = TEMP_DONATION; }
+      	else if (code == INCREASE)  {  tc = TEMP_INCREASE; }
+      	else if (code == DECREASE)  {  tc = TEMP_DECREASE; }
+      	else if (code == MIXTURE)   {  tc = TEMP_MIXTURE;  }
+      	Transaction t = trans.newTransCode(tc);
+      	if (!t.isDonation()) {
+	if (SERVI_CQUEUE_DEBUG_OUTPUT) {
+	  System.out.println("ServI RequestProcessor: before put, childq0=" + childq0
+	    + "\n adding t=" + t);
+	}
+	// If a donation, do not put in childq0
         childq0.put(t);
-if (SERVI_CQUEUE_DEBUG_OUTPUT) {
-  System.out.println("ServI RequestProcessor: after put, transactionID="
-    + t.getID() + "\n childq0=" + childq0);
-}
-// If a donation, do not send to other servers
+	if (SERVI_CQUEUE_DEBUG_OUTPUT) {
+	  System.out.println("ServI RequestProcessor: after put, transactionID="
+	    + t.getID() + "\n childq0=" + childq0);
+	}
+	// If a donation, do not send to other servers
       for (int i = 0; ServerTable.size() > i; i++)  // all but this server
         ServerExchangeOut( ServerTable.get(i), t);
       } // end if (!donation)

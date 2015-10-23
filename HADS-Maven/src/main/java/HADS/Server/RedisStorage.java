@@ -16,6 +16,7 @@ public class RedisStorage extends StorageConnector
 {
 
 	public Redisson redisson;
+	private int port = 6379;
 
 	public RedisStorage()
 	{

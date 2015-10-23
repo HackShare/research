@@ -27,7 +27,6 @@ public class HazelcastStorage extends StorageConnector
 			System.out.println("Hazelcast: A node has joined the cluster.");
 			System.out.println("Hazelcast: Current Cluster Size is " +
 				hazelcastInstance.getCluster().getMembers().size() + ".");
-			initBuffer(5);
 			return true;
 		}
 		catch(Exception e)

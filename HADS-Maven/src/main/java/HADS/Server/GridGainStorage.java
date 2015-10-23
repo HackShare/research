@@ -9,6 +9,7 @@ public class GridGainStorage extends StorageConnector
 {
 
 	public Ignite ignite;
+	private int port = 47100;
 
 	public GridGainStorage()
 	{

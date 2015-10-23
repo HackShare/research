@@ -7,16 +7,12 @@ cd $WHERE/HADS-Maven
 mvn compile
 mvn package
 
-
-cd target/classes
 pwd
 
 for i in 10.0.2.15; do
    echo $i
-   tar cf - HADS/*/*.class | ssh $i 'cd $HOME; tar xpf -; ls -al HADS; du -s HADS'
+   scp target/HADS-Maven-1.0-SNAPSHOT.jar $i:HADS/
    sleep 3
    echo $i
    ssh $i 'CLASSPATH=.:$HOME rmiregistry </dev/null 2>/dev/null 1>/dev/null &'
-   sleep 3
-   scp ../HADS-Maven-1.0-SNAPSHOT.jar $i:HADS/;
 done

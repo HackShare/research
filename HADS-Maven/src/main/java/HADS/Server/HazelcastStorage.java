@@ -10,6 +10,7 @@ public class HazelcastStorage extends StorageConnector
 {
 
 	public HazelcastInstance hazelcastInstance;
+	private int port = 5701;
 
 	public HazelcastStorage()
 	{
