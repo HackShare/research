@@ -1,0 +1,8 @@
+#!/bin/bash
+export WHERE=$HOME
+export CLASSPATH=.:$WHERE/HADS-Maven
+
+cd $WHERE/HADS-Maven
+
+mvn compile
+mvn package

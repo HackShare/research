@@ -1,0 +1,32 @@
+#!/bin/bash
+export curUser=$(whoami)
+if [ $curUser = "root" ]; then
+	echo "Cleaning containers..."
+	sleep 1s
+	export testExists=$(docker ps -a | grep -w -o "HADS-Docker2")
+	if [[ $testExists = "HADS-Docker2" ]]; then
+		echo "Stopping container..."
+		docker stop HADS-Docker2
+		echo "Removing container..."
+		docker rm HADS-Docker2
+	else
+		echo "No container to clean."
+	fi
+
+	echo "Building image..."
+	sleep 1s
+	docker build -t="middle59/hads-docker" .
+
+	echo "Creating container..."
+	sleep 1s
+	#Link to HADS-Docker who is host
+	docker run -d -it -P --name HADS-Docker2 --link HADS-Docker:HADS-Docker middle59/hads-docker
+
+	docker port HADS-Docker 22
+
+	#echo "Monitoring logs.."
+	#sleep 1s
+	#docker logs -f HADS-Docker
+else
+	echo "Not logged in as root. Try sudo -s"
+fi

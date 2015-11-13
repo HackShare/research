@@ -1,0 +1,647 @@
+Transaction Generator Started!!
+Usage: java TransGenerator file.xml pid [was... generationDelay minimumChange maximumChange numTransactions decRatio incRatio batchFile resultsFile numServers server1 ratio1 server2 ratio2 ...]
+Transaction Generator command line arguments processed:
+ pid =                6112
+ initial_cost_bound = { 200 }
+ upper_cost_bound =   { 2000 }
+ donationInterval =   0
+ donationMin =        { 8 }
+ donationMax =        { 32 }
+ flipDecIncInterval = 0
+ delay =              1000
+ number =             200
+ current_batch =      batch6112-hadsA
+ results_file =       merged6112-hadsA
+ allDecsOrIncs =      true
+ numServers =         5
+ ratioTotal =         19
+ min_change =         { { 3 }{ 3 }{ 3 }{ 3 }{ 3 } }
+ max_change =         { { 9 }{ 9 }{ 9 }{ 9 }{ 9 } }
+ decrease_ratio =     { { 10 }{ 10 }{ 10 }{ 10 }{ 10 } }
+ increase_ratio =     { { 5 }{ 5 }{ 5 }{ 5 }{ 5 } }
+server = //hadsA/hadsAS6112, ratio = 2
+server = //hadsB/hadsBS6112, ratio = 3
+server = //hadsC/hadsCS6112, ratio = 4
+server = //hadsD/hadsDS6112, ratio = 5
+server = //hadsE/hadsES6112, ratio = 5
+Transactions Being Generated Now!!
+GEN DELAY: 6500
+SERVERS: 5
+Now Generating and Sending Transactions
+Sleeping an average of 1000 milliseconds between transactions
+On average, one of every 0 transaction is a donation of new resources
+current = {C  200 } {U 2000 } {W    0 } {D    0 }
+Trying tr =          0 {    9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+75 ms,          0 {    9 } //hadsE/hadsES6112 n
+current = {C  209 } {U 2000 } {W    9 } {D    0 }
+Trying tr =          1 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1628 ms,          1 {    3 } //hadsD/hadsDS6112 n
+current = {C  212 } {U 2000 } {W   12 } {D    0 }
+Trying tr =          2 {   -7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+552 ms,          2 {   -7 } //hadsD/hadsDS6112 n
+current = {C  205 } {U 2000 } {W   19 } {D    0 }
+Trying tr =          3 {    9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+833 ms,          3 {    9 } //hadsD/hadsDS6112 n
+current = {C  214 } {U 2000 } {W   28 } {D    0 }
+Trying tr =          4 {    8 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+643 ms,          4 {    8 } //hadsE/hadsES6112 n
+current = {C  222 } {U 2000 } {W   36 } {D    0 }
+Trying tr =          5 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1441 ms,          5 {    3 } //hadsD/hadsDS6112 n
+current = {C  225 } {U 2000 } {W   39 } {D    0 }
+Trying tr =          6 {   -5 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+564 ms,          6 {   -5 } //hadsB/hadsBS6112 n
+current = {C  220 } {U 2000 } {W   44 } {D    0 }
+Trying tr =          7 {    9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1044 ms,          7 {    9 } //hadsD/hadsDS6112 n
+current = {C  229 } {U 2000 } {W   53 } {D    0 }
+Trying tr =          8 {   -6 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+940 ms,          8 {   -6 } //hadsE/hadsES6112 n
+current = {C  223 } {U 2000 } {W   59 } {D    0 }
+Trying tr =          9 {   -7 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1120 ms,          9 {   -7 } //hadsA/hadsAS6112 n
+current = {C  216 } {U 2000 } {W   66 } {D    0 }
+Trying tr =         10 {   -8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1134 ms,         10 {   -8 } //hadsD/hadsDS6112 n
+current = {C  208 } {U 2000 } {W   74 } {D    0 }
+Trying tr =         11 {   -7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1590 ms,         11 {   -7 } //hadsE/hadsES6112 n
+current = {C  201 } {U 2000 } {W   81 } {D    0 }
+Trying tr =         12 {   -5 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+268 ms,         12 {   -5 } //hadsE/hadsES6112 n
+current = {C  196 } {U 2000 } {W   86 } {D    0 }
+Trying tr =         13 {    5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+113 ms,         13 {    5 } //hadsD/hadsDS6112 n
+current = {C  201 } {U 2000 } {W   91 } {D    0 }
+Trying tr =         14 {    4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+178 ms,         14 {    4 } //hadsE/hadsES6112 n
+current = {C  205 } {U 2000 } {W   95 } {D    0 }
+Trying tr =         15 {    5 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1642 ms,         15 {    5 } //hadsB/hadsBS6112 n
+current = {C  210 } {U 2000 } {W  100 } {D    0 }
+Trying tr =         16 {   -9 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+67 ms,         16 {   -9 } //hadsC/hadsCS6112 n
+current = {C  201 } {U 2000 } {W  109 } {D    0 }
+Trying tr =         17 {   -7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+241 ms,         17 {   -7 } //hadsE/hadsES6112 n
+current = {C  194 } {U 2000 } {W  116 } {D    0 }
+Trying tr =         18 {   -8 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1120 ms,         18 {   -8 } //hadsE/hadsES6112 n
+current = {C  186 } {U 2000 } {W  124 } {D    0 }
+Trying tr =         19 {   -6 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1684 ms,         19 {   -6 } //hadsC/hadsCS6112 n
+current = {C  180 } {U 2000 } {W  130 } {D    0 }
+Trying tr =         20 {   -9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1828 ms,         20 {   -9 } //hadsE/hadsES6112 n
+current = {C  171 } {U 2000 } {W  139 } {D    0 }
+Trying tr =         21 {   -9 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1819 ms,         21 {   -9 } //hadsC/hadsCS6112 n
+current = {C  162 } {U 2000 } {W  148 } {D    0 }
+Trying tr =         22 {   -9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1284 ms,         22 {   -9 } //hadsB/hadsBS6112 n
+current = {C  153 } {U 2000 } {W  157 } {D    0 }
+Trying tr =         23 {   -3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+238 ms,         23 {   -3 } //hadsD/hadsDS6112 n
+current = {C  150 } {U 2000 } {W  160 } {D    0 }
+Trying tr =         24 {   -3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+213 ms,         24 {   -3 } //hadsC/hadsCS6112 n
+current = {C  147 } {U 2000 } {W  163 } {D    0 }
+Trying tr =         25 {   -4 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1226 ms,         25 {   -4 } //hadsA/hadsAS6112 n
+current = {C  143 } {U 2000 } {W  167 } {D    0 }
+Trying tr =         26 {   -9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1983 ms,         26 {   -9 } //hadsD/hadsDS6112 n
+current = {C  134 } {U 2000 } {W  176 } {D    0 }
+Trying tr =         27 {    9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+531 ms,         27 {    9 } //hadsD/hadsDS6112 n
+current = {C  143 } {U 2000 } {W  185 } {D    0 }
+Trying tr =         28 {    3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+367 ms,         28 {    3 } //hadsC/hadsCS6112 n
+current = {C  146 } {U 2000 } {W  188 } {D    0 }
+Trying tr =         29 {   -4 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+926 ms,         29 {   -4 } //hadsD/hadsDS6112 n
+current = {C  142 } {U 2000 } {W  192 } {D    0 }
+Trying tr =         30 {   -6 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1304 ms,         30 {   -6 } //hadsA/hadsAS6112 n
+current = {C  136 } {U 2000 } {W  198 } {D    0 }
+Trying tr =         31 {   -9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+112 ms,         31 {   -9 } //hadsD/hadsDS6112 n
+current = {C  127 } {U 2000 } {W  207 } {D    0 }
+Trying tr =         32 {   -3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+423 ms,         32 {   -3 } //hadsC/hadsCS6112 n
+current = {C  124 } {U 2000 } {W  210 } {D    0 }
+Trying tr =         33 {   -3 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+927 ms,         33 {   -3 } //hadsE/hadsES6112 n
+current = {C  121 } {U 2000 } {W  213 } {D    0 }
+Trying tr =         34 {   -7 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+587 ms,         34 {   -7 } //hadsB/hadsBS6112 n
+current = {C  114 } {U 2000 } {W  220 } {D    0 }
+Trying tr =         35 {    7 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+408 ms,         35 {    7 } //hadsB/hadsBS6112 n
+current = {C  121 } {U 2000 } {W  227 } {D    0 }
+Trying tr =         36 {   -5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+206 ms,         36 {   -5 } //hadsD/hadsDS6112 n
+current = {C  116 } {U 2000 } {W  232 } {D    0 }
+Trying tr =         37 {   -9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+687 ms,         37 {   -9 } //hadsE/hadsES6112 n
+current = {C  107 } {U 2000 } {W  241 } {D    0 }
+Trying tr =         38 {   -8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1599 ms,         38 {   -8 } //hadsC/hadsCS6112 n
+current = {C   99 } {U 2000 } {W  249 } {D    0 }
+Trying tr =         39 {   -4 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1234 ms,         39 {   -4 } //hadsB/hadsBS6112 n
+current = {C   95 } {U 2000 } {W  253 } {D    0 }
+Trying tr =         40 {   -5 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1129 ms,         40 {   -5 } //hadsC/hadsCS6112 n
+current = {C   90 } {U 2000 } {W  258 } {D    0 }
+Trying tr =         41 {   -5 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+471 ms,         41 {   -5 } //hadsC/hadsCS6112 n
+current = {C   85 } {U 2000 } {W  263 } {D    0 }
+Trying tr =         42 {    8 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1407 ms,         42 {    8 } //hadsB/hadsBS6112 n
+current = {C   93 } {U 2000 } {W  271 } {D    0 }
+Trying tr =         43 {    6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1238 ms,         43 {    6 } //hadsD/hadsDS6112 n
+current = {C   99 } {U 2000 } {W  277 } {D    0 }
+Trying tr =         44 {   -5 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+287 ms,         44 {   -5 } //hadsC/hadsCS6112 n
+current = {C   94 } {U 2000 } {W  282 } {D    0 }
+Trying tr =         45 {   -6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1145 ms,         45 {   -6 } //hadsD/hadsDS6112 n
+current = {C   88 } {U 2000 } {W  288 } {D    0 }
+Trying tr =         46 {   -9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1940 ms,         46 {   -9 } //hadsD/hadsDS6112 n
+current = {C   79 } {U 2000 } {W  297 } {D    0 }
+Trying tr =         47 {    9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1299 ms,         47 {    9 } //hadsB/hadsBS6112 n
+current = {C   88 } {U 2000 } {W  306 } {D    0 }
+Trying tr =         48 {   -9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1744 ms,         48 {   -9 } //hadsD/hadsDS6112 n
+current = {C   79 } {U 2000 } {W  315 } {D    0 }
+Trying tr =         49 {    6 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1422 ms,         49 {    6 } //hadsE/hadsES6112 n
+current = {C   85 } {U 2000 } {W  321 } {D    0 }
+Trying tr =         50 {   -9 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1254 ms,         50 {   -9 } //hadsA/hadsAS6112 n
+current = {C   76 } {U 2000 } {W  330 } {D    0 }
+Trying tr =         51 {   -7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1869 ms,         51 {   -7 } //hadsD/hadsDS6112 n
+current = {C   69 } {U 2000 } {W  337 } {D    0 }
+Trying tr =         52 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+17 ms,         52 {   -4 } //hadsC/hadsCS6112 n
+current = {C   65 } {U 2000 } {W  341 } {D    0 }
+Trying tr =         53 {   -4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1548 ms,         53 {   -4 } //hadsE/hadsES6112 n
+current = {C   61 } {U 2000 } {W  345 } {D    0 }
+Trying tr =         54 {   -5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1482 ms,         54 {   -5 } //hadsD/hadsDS6112 n
+current = {C   56 } {U 2000 } {W  350 } {D    0 }
+Trying tr =         55 {   -9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1256 ms,         55 {   -9 } //hadsB/hadsBS6112 n
+current = {C   47 } {U 2000 } {W  359 } {D    0 }
+Trying tr =         56 {   -7 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+757 ms,         56 {   -7 } //hadsA/hadsAS6112 n
+current = {C   40 } {U 2000 } {W  366 } {D    0 }
+Trying tr =         57 {   -4 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+437 ms,         57 {   -4 } //hadsB/hadsBS6112 n
+current = {C   36 } {U 2000 } {W  370 } {D    0 }
+Trying tr =         58 {    3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+492 ms,         58 {    3 } //hadsC/hadsCS6112 n
+current = {C   39 } {U 2000 } {W  373 } {D    0 }
+Trying tr =         59 {    6 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1861 ms,         59 {    6 } //hadsC/hadsCS6112 n
+current = {C   45 } {U 2000 } {W  379 } {D    0 }
+Trying tr =         60 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1619 ms,         60 {   -4 } //hadsC/hadsCS6112 n
+current = {C   41 } {U 2000 } {W  383 } {D    0 }
+Trying tr =         61 {    6 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1251 ms,         61 {    6 } //hadsE/hadsES6112 n
+current = {C   47 } {U 2000 } {W  389 } {D    0 }
+Trying tr =         62 {   -7 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+229 ms,         62 {   -7 } //hadsA/hadsAS6112 n
+current = {C   40 } {U 2000 } {W  396 } {D    0 }
+Trying tr =         63 {   -8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1347 ms,         63 {   -8 } //hadsD/hadsDS6112 n
+current = {C   32 } {U 2000 } {W  404 } {D    0 }
+Trying tr =         64 {    8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+333 ms,         64 {    8 } //hadsD/hadsDS6112 n
+current = {C   40 } {U 2000 } {W  412 } {D    0 }
+Trying tr =         65 {   -6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+423 ms,         65 {   -6 } //hadsD/hadsDS6112 n
+current = {C   34 } {U 2000 } {W  418 } {D    0 }
+Trying tr =         66 {   -5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+761 ms,         66 {   -5 } //hadsD/hadsDS6112 n
+current = {C   29 } {U 2000 } {W  423 } {D    0 }
+Trying tr =         67 {    7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1768 ms,         67 {    7 } //hadsE/hadsES6112 n
+current = {C   36 } {U 2000 } {W  430 } {D    0 }
+Trying tr =         68 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+970 ms,         68 {   -4 } //hadsC/hadsCS6112 n
+current = {C   32 } {U 2000 } {W  434 } {D    0 }
+Trying tr =         69 {    7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1129 ms,         69 {    7 } //hadsE/hadsES6112 n
+current = {C   39 } {U 2000 } {W  441 } {D    0 }
+Trying tr =         70 {   -4 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1011 ms,         70 {   -4 } //hadsD/hadsDS6112 n
+current = {C   35 } {U 2000 } {W  445 } {D    0 }
+Trying tr =         71 {   -7 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1634 ms,         71 {   -7 } //hadsB/hadsBS6112 n
+current = {C   28 } {U 2000 } {W  452 } {D    0 }
+Trying tr =         72 {    3 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1403 ms,         72 {    3 } //hadsE/hadsES6112 n
+current = {C   31 } {U 2000 } {W  455 } {D    0 }
+Trying tr =         73 {    6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+199 ms,         73 {    6 } //hadsD/hadsDS6112 n
+current = {C   37 } {U 2000 } {W  461 } {D    0 }
+Trying tr =         74 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1195 ms,         74 {   -4 } //hadsC/hadsCS6112 n
+current = {C   33 } {U 2000 } {W  465 } {D    0 }
+Trying tr =         75 {   -8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1922 ms,         75 {   -8 } //hadsC/hadsCS6112 n
+current = {C   25 } {U 2000 } {W  473 } {D    0 }
+Trying tr =         76 {   -8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+956 ms,         76 {   -8 } //hadsD/hadsDS6112 n
+current = {C   17 } {U 2000 } {W  481 } {D    0 }
+Trying tr =         77 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1482 ms,         77 {    3 } //hadsD/hadsDS6112 n
+current = {C   20 } {U 2000 } {W  484 } {D    0 }
+Trying tr =         78 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1948 ms,         78 {    3 } //hadsD/hadsDS6112 n
+current = {C   23 } {U 2000 } {W  487 } {D    0 }
+Trying tr =         79 {   -8 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1037 ms,         79 {   -8 } //hadsB/hadsBS6112 n
+current = {C   15 } {U 2000 } {W  495 } {D    0 }
+Trying tr =         80 {    9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1262 ms,         80 {    9 } //hadsB/hadsBS6112 n
+current = {C   24 } {U 2000 } {W  504 } {D    0 }
+Trying tr =         81 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+648 ms,         81 {   -4 } //hadsC/hadsCS6112 n
+current = {C   20 } {U 2000 } {W  508 } {D    0 }
+Trying tr =         82 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1147 ms,         82 {   -4 } //hadsC/hadsCS6112 n
+current = {C   16 } {U 2000 } {W  512 } {D    0 }
+Trying tr =         83 {    3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1714 ms,         83 {    3 } //hadsC/hadsCS6112 n
+current = {C   19 } {U 2000 } {W  515 } {D    0 }
+Trying tr =         84 {   -4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1307 ms,         84 {   -4 } //hadsC/hadsCS6112 n
+current = {C   15 } {U 2000 } {W  519 } {D    0 }
+Trying tr =         85 {   -9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+444 ms,         85 {   -9 } //hadsB/hadsBS6112 n
+current = {C    6 } {U 2000 } {W  528 } {D    0 }
+Trying tr =         86 {   -4 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1428 ms,         86 {   -4 } //hadsA/hadsAS6112 n
+current = {C    2 } {U 2000 } {W  532 } {D    0 }
+Trying tr =         87 {    5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+866 ms,         87 {    5 } //hadsD/hadsDS6112 n
+current = {C    7 } {U 2000 } {W  537 } {D    0 }
+Trying tr =         88 {   -6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1669 ms,         88 {   -6 } //hadsD/hadsDS6112 n
+current = {C    1 } {U 2000 } {W  543 } {D    0 }
+Trying tr =         89 {    9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1383 ms,         89 {    9 } //hadsE/hadsES6112 n
+current = {C   10 } {U 2000 } {W  552 } {D    0 }
+Trying tr =         90 {   -7 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1404 ms,         90 {   -7 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  559 } {D    0 }
+Trying tr =         91 {   -6 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+1379 ms,         91 {   -6 } //hadsA/hadsAS6112 n
+current = {C    3 } {U 2000 } {W  559 } {D    0 }
+Trying tr =         92 {    5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+954 ms,         92 {    5 } //hadsD/hadsDS6112 n
+current = {C    8 } {U 2000 } {W  564 } {D    0 }
+Trying tr =         93 {   -8 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+892 ms,         93 {   -8 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         94 {   -7 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+1571 ms,         94 {   -7 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         95 {   -3 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+852 ms,         95 {   -3 } //hadsD/hadsDS6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         96 {   -7 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+1433 ms,         96 {   -7 } //hadsA/hadsAS6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         97 {   -7 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+1897 ms,         97 {   -7 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         98 {   -7 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+1913 ms,         98 {   -7 } //hadsA/hadsAS6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =         99 {   -4 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+279 ms,         99 {   -4 } //hadsC/hadsCS6112 n
+current = {C    0 } {U 2000 } {W  572 } {D    0 }
+Trying tr =        100 {    3 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+865 ms,        100 {    3 } //hadsB/hadsBS6112 n
+current = {C    3 } {U 2000 } {W  575 } {D    0 }
+Trying tr =        101 {    7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1855 ms,        101 {    7 } //hadsD/hadsDS6112 n
+current = {C   10 } {U 2000 } {W  582 } {D    0 }
+Trying tr =        102 {   -7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+203 ms,        102 {   -7 } //hadsD/hadsDS6112 n
+current = {C    3 } {U 2000 } {W  589 } {D    0 }
+Trying tr =        103 {   -3 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1683 ms,        103 {   -3 } //hadsB/hadsBS6112 n
+current = {C    0 } {U 2000 } {W  592 } {D    0 }
+Trying tr =        104 {    8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1519 ms,        104 {    8 } //hadsC/hadsCS6112 n
+current = {C    8 } {U 2000 } {W  600 } {D    0 }
+Trying tr =        105 {    7 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1229 ms,        105 {    7 } //hadsC/hadsCS6112 n
+current = {C   15 } {U 2000 } {W  607 } {D    0 }
+Trying tr =        106 {   -5 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1998 ms,        106 {   -5 } //hadsC/hadsCS6112 n
+current = {C   10 } {U 2000 } {W  612 } {D    0 }
+Trying tr =        107 {   -5 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1686 ms,        107 {   -5 } //hadsB/hadsBS6112 n
+current = {C    5 } {U 2000 } {W  617 } {D    0 }
+Trying tr =        108 {    7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1396 ms,        108 {    7 } //hadsE/hadsES6112 n
+current = {C   12 } {U 2000 } {W  624 } {D    0 }
+Trying tr =        109 {   -6 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+417 ms,        109 {   -6 } //hadsA/hadsAS6112 n
+current = {C    6 } {U 2000 } {W  630 } {D    0 }
+Trying tr =        110 {   -4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1328 ms,        110 {   -4 } //hadsE/hadsES6112 n
+current = {C    2 } {U 2000 } {W  634 } {D    0 }
+Trying tr =        111 {   -8 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+35 ms,        111 {   -8 } //hadsA/hadsAS6112 n
+current = {C    2 } {U 2000 } {W  634 } {D    0 }
+Trying tr =        112 {   -9 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+637 ms,        112 {   -9 } //hadsC/hadsCS6112 n
+current = {C    2 } {U 2000 } {W  634 } {D    0 }
+Trying tr =        113 {   -9 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+116 ms,        113 {   -9 } //hadsE/hadsES6112 n
+current = {C    2 } {U 2000 } {W  634 } {D    0 }
+Trying tr =        114 {   -7 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+1084 ms,        114 {   -7 } //hadsC/hadsCS6112 n
+current = {C    2 } {U 2000 } {W  634 } {D    0 }
+Trying tr =        115 {    8 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+65 ms,        115 {    8 } //hadsB/hadsBS6112 n
+current = {C   10 } {U 2000 } {W  642 } {D    0 }
+Trying tr =        116 {   -6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+136 ms,        116 {   -6 } //hadsD/hadsDS6112 n
+current = {C    4 } {U 2000 } {W  648 } {D    0 }
+Trying tr =        117 {   -4 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+134 ms,        117 {   -4 } //hadsD/hadsDS6112 n
+current = {C    0 } {U 2000 } {W  652 } {D    0 }
+Trying tr =        118 {   -3 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+96 ms,        118 {   -3 } //hadsD/hadsDS6112 n
+current = {C    0 } {U 2000 } {W  652 } {D    0 }
+Trying tr =        119 {   -7 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+109 ms,        119 {   -7 } //hadsD/hadsDS6112 n
+current = {C    0 } {U 2000 } {W  652 } {D    0 }
+Trying tr =        120 {    3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1340 ms,        120 {    3 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  655 } {D    0 }
+Trying tr =        121 {   -7 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+1655 ms,        121 {   -7 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  655 } {D    0 }
+Trying tr =        122 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1914 ms,        122 {    3 } //hadsD/hadsDS6112 n
+current = {C    6 } {U 2000 } {W  658 } {D    0 }
+Trying tr =        123 {   -8 } //hadsB/hadsBS6112 n .... VIOLATION would go BELOW zero.
+857 ms,        123 {   -8 } //hadsB/hadsBS6112 n
+current = {C    6 } {U 2000 } {W  658 } {D    0 }
+Trying tr =        124 {    7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+252 ms,        124 {    7 } //hadsD/hadsDS6112 n
+current = {C   13 } {U 2000 } {W  665 } {D    0 }
+Trying tr =        125 {    5 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1935 ms,        125 {    5 } //hadsB/hadsBS6112 n
+current = {C   18 } {U 2000 } {W  670 } {D    0 }
+Trying tr =        126 {    9 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+275 ms,        126 {    9 } //hadsC/hadsCS6112 n
+current = {C   27 } {U 2000 } {W  679 } {D    0 }
+Trying tr =        127 {    7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1657 ms,        127 {    7 } //hadsE/hadsES6112 n
+current = {C   34 } {U 2000 } {W  686 } {D    0 }
+Trying tr =        128 {   -9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+621 ms,        128 {   -9 } //hadsB/hadsBS6112 n
+current = {C   25 } {U 2000 } {W  695 } {D    0 }
+Trying tr =        129 {   -4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+458 ms,        129 {   -4 } //hadsE/hadsES6112 n
+current = {C   21 } {U 2000 } {W  699 } {D    0 }
+Trying tr =        130 {   -3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+273 ms,        130 {   -3 } //hadsD/hadsDS6112 n
+current = {C   18 } {U 2000 } {W  702 } {D    0 }
+Trying tr =        131 {   -4 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+763 ms,        131 {   -4 } //hadsB/hadsBS6112 n
+current = {C   14 } {U 2000 } {W  706 } {D    0 }
+Trying tr =        132 {   -9 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1335 ms,        132 {   -9 } //hadsC/hadsCS6112 n
+current = {C    5 } {U 2000 } {W  715 } {D    0 }
+Trying tr =        133 {   -7 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+1530 ms,        133 {   -7 } //hadsA/hadsAS6112 n
+current = {C    5 } {U 2000 } {W  715 } {D    0 }
+Trying tr =        134 {   -5 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+220 ms,        134 {   -5 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        135 {   -6 } //hadsB/hadsBS6112 n .... VIOLATION would go BELOW zero.
+525 ms,        135 {   -6 } //hadsB/hadsBS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        136 {   -8 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+1005 ms,        136 {   -8 } //hadsA/hadsAS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        137 {   -9 } //hadsB/hadsBS6112 n .... VIOLATION would go BELOW zero.
+316 ms,        137 {   -9 } //hadsB/hadsBS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        138 {   -7 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+1206 ms,        138 {   -7 } //hadsC/hadsCS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        139 {   -3 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+527 ms,        139 {   -3 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        140 {   -4 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+745 ms,        140 {   -4 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        141 {   -8 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+1326 ms,        141 {   -8 } //hadsD/hadsDS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        142 {   -7 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+1348 ms,        142 {   -7 } //hadsC/hadsCS6112 n
+current = {C    0 } {U 2000 } {W  720 } {D    0 }
+Trying tr =        143 {    6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1676 ms,        143 {    6 } //hadsD/hadsDS6112 n
+current = {C    6 } {U 2000 } {W  726 } {D    0 }
+Trying tr =        144 {   -8 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+148 ms,        144 {   -8 } //hadsD/hadsDS6112 n
+current = {C    6 } {U 2000 } {W  726 } {D    0 }
+Trying tr =        145 {    3 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+349 ms,        145 {    3 } //hadsD/hadsDS6112 n
+current = {C    9 } {U 2000 } {W  729 } {D    0 }
+Trying tr =        146 {    6 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1742 ms,        146 {    6 } //hadsD/hadsDS6112 n
+current = {C   15 } {U 2000 } {W  735 } {D    0 }
+Trying tr =        147 {    4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+220 ms,        147 {    4 } //hadsE/hadsES6112 n
+current = {C   19 } {U 2000 } {W  739 } {D    0 }
+Trying tr =        148 {   -5 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1458 ms,        148 {   -5 } //hadsB/hadsBS6112 n
+current = {C   14 } {U 2000 } {W  744 } {D    0 }
+Trying tr =        149 {   -5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+826 ms,        149 {   -5 } //hadsD/hadsDS6112 n
+current = {C    9 } {U 2000 } {W  749 } {D    0 }
+Trying tr =        150 {   -8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1103 ms,        150 {   -8 } //hadsD/hadsDS6112 n
+current = {C    1 } {U 2000 } {W  757 } {D    0 }
+Trying tr =        151 {   -7 } //hadsB/hadsBS6112 n .... VIOLATION would go BELOW zero.
+731 ms,        151 {   -7 } //hadsB/hadsBS6112 n
+current = {C    1 } {U 2000 } {W  757 } {D    0 }
+Trying tr =        152 {   -4 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+933 ms,        152 {   -4 } //hadsE/hadsES6112 n
+current = {C    1 } {U 2000 } {W  757 } {D    0 }
+Trying tr =        153 {    4 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1672 ms,        153 {    4 } //hadsB/hadsBS6112 n
+current = {C    5 } {U 2000 } {W  761 } {D    0 }
+Trying tr =        154 {    7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+110 ms,        154 {    7 } //hadsD/hadsDS6112 n
+current = {C   12 } {U 2000 } {W  768 } {D    0 }
+Trying tr =        155 {    7 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1019 ms,        155 {    7 } //hadsC/hadsCS6112 n
+current = {C   19 } {U 2000 } {W  775 } {D    0 }
+Trying tr =        156 {    4 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+410 ms,        156 {    4 } //hadsD/hadsDS6112 n
+current = {C   23 } {U 2000 } {W  779 } {D    0 }
+Trying tr =        157 {    4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1542 ms,        157 {    4 } //hadsE/hadsES6112 n
+current = {C   27 } {U 2000 } {W  783 } {D    0 }
+Trying tr =        158 {   -4 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+432 ms,        158 {   -4 } //hadsE/hadsES6112 n
+current = {C   23 } {U 2000 } {W  787 } {D    0 }
+Trying tr =        159 {   -3 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1998 ms,        159 {   -3 } //hadsB/hadsBS6112 n
+current = {C   20 } {U 2000 } {W  790 } {D    0 }
+Trying tr =        160 {    7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+62 ms,        160 {    7 } //hadsE/hadsES6112 n
+current = {C   27 } {U 2000 } {W  797 } {D    0 }
+Trying tr =        161 {    3 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+546 ms,        161 {    3 } //hadsB/hadsBS6112 n
+current = {C   30 } {U 2000 } {W  800 } {D    0 }
+Trying tr =        162 {   -7 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1464 ms,        162 {   -7 } //hadsE/hadsES6112 n
+current = {C   23 } {U 2000 } {W  807 } {D    0 }
+Trying tr =        163 {   -9 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1496 ms,        163 {   -9 } //hadsA/hadsAS6112 n
+current = {C   14 } {U 2000 } {W  816 } {D    0 }
+Trying tr =        164 {   -3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1345 ms,        164 {   -3 } //hadsC/hadsCS6112 n
+current = {C   11 } {U 2000 } {W  819 } {D    0 }
+Trying tr =        165 {   -5 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+403 ms,        165 {   -5 } //hadsE/hadsES6112 n
+current = {C    6 } {U 2000 } {W  824 } {D    0 }
+Trying tr =        166 {   -4 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1751 ms,        166 {   -4 } //hadsB/hadsBS6112 n
+current = {C    2 } {U 2000 } {W  828 } {D    0 }
+Trying tr =        167 {   -4 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+1009 ms,        167 {   -4 } //hadsD/hadsDS6112 n
+current = {C    2 } {U 2000 } {W  828 } {D    0 }
+Trying tr =        168 {    9 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1155 ms,        168 {    9 } //hadsD/hadsDS6112 n
+current = {C   11 } {U 2000 } {W  837 } {D    0 }
+Trying tr =        169 {   -8 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+44 ms,        169 {   -8 } //hadsB/hadsBS6112 n
+current = {C    3 } {U 2000 } {W  845 } {D    0 }
+Trying tr =        170 {   -8 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+103 ms,        170 {   -8 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  845 } {D    0 }
+Trying tr =        171 {   -5 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+399 ms,        171 {   -5 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  845 } {D    0 }
+Trying tr =        172 {   -8 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+159 ms,        172 {   -8 } //hadsD/hadsDS6112 n
+current = {C    3 } {U 2000 } {W  845 } {D    0 }
+Trying tr =        173 {    8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1662 ms,        173 {    8 } //hadsC/hadsCS6112 n
+current = {C   11 } {U 2000 } {W  853 } {D    0 }
+Trying tr =        174 {   -3 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1419 ms,        174 {   -3 } //hadsE/hadsES6112 n
+current = {C    8 } {U 2000 } {W  856 } {D    0 }
+Trying tr =        175 {   -3 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1547 ms,        175 {   -3 } //hadsE/hadsES6112 n
+current = {C    5 } {U 2000 } {W  859 } {D    0 }
+Trying tr =        176 {   -6 } //hadsA/hadsAS6112 n .... VIOLATION would go BELOW zero.
+345 ms,        176 {   -6 } //hadsA/hadsAS6112 n
+current = {C    5 } {U 2000 } {W  859 } {D    0 }
+Trying tr =        177 {    9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+203 ms,        177 {    9 } //hadsE/hadsES6112 n
+current = {C   14 } {U 2000 } {W  868 } {D    0 }
+Trying tr =        178 {    9 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+189 ms,        178 {    9 } //hadsB/hadsBS6112 n
+current = {C   23 } {U 2000 } {W  877 } {D    0 }
+Trying tr =        179 {   -7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1933 ms,        179 {   -7 } //hadsD/hadsDS6112 n
+current = {C   16 } {U 2000 } {W  884 } {D    0 }
+Trying tr =        180 {   -4 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+746 ms,        180 {   -4 } //hadsA/hadsAS6112 n
+current = {C   12 } {U 2000 } {W  888 } {D    0 }
+Trying tr =        181 {   -8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1305 ms,        181 {   -8 } //hadsC/hadsCS6112 n
+current = {C    4 } {U 2000 } {W  896 } {D    0 }
+Trying tr =        182 {   -7 } //hadsD/hadsDS6112 n .... VIOLATION would go BELOW zero.
+708 ms,        182 {   -7 } //hadsD/hadsDS6112 n
+current = {C    4 } {U 2000 } {W  896 } {D    0 }
+Trying tr =        183 {    4 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+1184 ms,        183 {    4 } //hadsC/hadsCS6112 n
+current = {C    8 } {U 2000 } {W  900 } {D    0 }
+Trying tr =        184 {    3 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+374 ms,        184 {    3 } //hadsC/hadsCS6112 n
+current = {C   11 } {U 2000 } {W  903 } {D    0 }
+Trying tr =        185 {   -8 } //hadsC/hadsCS6112 n .... does not exceed upper bound or go below zero.
+684 ms,        185 {   -8 } //hadsC/hadsCS6112 n
+current = {C    3 } {U 2000 } {W  911 } {D    0 }
+Trying tr =        186 {   -6 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+971 ms,        186 {   -6 } //hadsE/hadsES6112 n
+current = {C    3 } {U 2000 } {W  911 } {D    0 }
+Trying tr =        187 {   -3 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1546 ms,        187 {   -3 } //hadsB/hadsBS6112 n
+current = {C    0 } {U 2000 } {W  914 } {D    0 }
+Trying tr =        188 {   -9 } //hadsE/hadsES6112 n .... VIOLATION would go BELOW zero.
+1343 ms,        188 {   -9 } //hadsE/hadsES6112 n
+current = {C    0 } {U 2000 } {W  914 } {D    0 }
+Trying tr =        189 {    7 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1959 ms,        189 {    7 } //hadsB/hadsBS6112 n
+current = {C    7 } {U 2000 } {W  921 } {D    0 }
+Trying tr =        190 {   -3 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+1273 ms,        190 {   -3 } //hadsA/hadsAS6112 n
+current = {C    4 } {U 2000 } {W  924 } {D    0 }
+Trying tr =        191 {   -9 } //hadsC/hadsCS6112 n .... VIOLATION would go BELOW zero.
+1316 ms,        191 {   -9 } //hadsC/hadsCS6112 n
+current = {C    4 } {U 2000 } {W  924 } {D    0 }
+Trying tr =        192 {    9 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+1187 ms,        192 {    9 } //hadsE/hadsES6112 n
+current = {C   13 } {U 2000 } {W  933 } {D    0 }
+Trying tr =        193 {    8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1931 ms,        193 {    8 } //hadsD/hadsDS6112 n
+current = {C   21 } {U 2000 } {W  941 } {D    0 }
+Trying tr =        194 {   -9 } //hadsA/hadsAS6112 n .... does not exceed upper bound or go below zero.
+502 ms,        194 {   -9 } //hadsA/hadsAS6112 n
+current = {C   12 } {U 2000 } {W  950 } {D    0 }
+Trying tr =        195 {   -6 } //hadsE/hadsES6112 n .... does not exceed upper bound or go below zero.
+212 ms,        195 {   -6 } //hadsE/hadsES6112 n
+current = {C    6 } {U 2000 } {W  956 } {D    0 }
+Trying tr =        196 {    5 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1378 ms,        196 {    5 } //hadsD/hadsDS6112 n
+current = {C   11 } {U 2000 } {W  961 } {D    0 }
+Trying tr =        197 {   -7 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+300 ms,        197 {   -7 } //hadsD/hadsDS6112 n
+current = {C    4 } {U 2000 } {W  968 } {D    0 }
+Trying tr =        198 {    8 } //hadsB/hadsBS6112 n .... does not exceed upper bound or go below zero.
+1124 ms,        198 {    8 } //hadsB/hadsBS6112 n
+current = {C   12 } {U 2000 } {W  976 } {D    0 }
+Trying tr =        199 {   -8 } //hadsD/hadsDS6112 n .... does not exceed upper bound or go below zero.
+1690 ms,        199 {   -8 } //hadsD/hadsDS6112 n
+last current = {C    4 } {U 2000 } {W  984 } {D    0 }
+number donation = 0
+number decrements = 135, number increments = 65
+violations below zero = 36, violations above max = 0
+number generated = 200
+Server //hadsA/hadsAS6112 (ratio 2) received 19 transactions.
+Server //hadsB/hadsBS6112 (ratio 3) received 35 transactions.
+Server //hadsC/hadsCS6112 (ratio 4) received 44 transactions.
+Server //hadsD/hadsDS6112 (ratio 5) received 59 transactions.
+Server //hadsE/hadsES6112 (ratio 5) received 43 transactions.
+All transactions generated; waiting 200000 milliseconds for servers to settle....
+Generation Complete
+Runtime: 402710
+Telling all servers to send their results, write their own results files, and terminate.
+Generation program done.

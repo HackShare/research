@@ -1,0 +1,106 @@
+Statistics args: ../HADS/XML/file5724.xml, 5822, merged5822-hadsA.sorted
+XML file name = ../HADS/XML/file5724.xml
+pid = 5822
+input file name = merged5822-hadsA.sorted
+numResourceTypes = 1
+dataHADS = 
+ fileName = ../HADS/XML/file5724.xml
+ BATCH_PREFIX = batch
+ OUTPUT_PREFIX = output
+ GENOUT_PREFIX = genout
+ RESULTS_PREFIX = results
+ MERGED_PREFIX = merged
+ STATS_PREFIX = statistics
+ UPPER_BOUND = { 2000 }
+ COST_BOUND = { 200 }
+ COST_PCT = { 116 }
+ GEN_DELAY = 1000
+ NUM_TRANS = 20
+ DONATION_INTERVAL = 0
+ DONATION_MIN = { 8 }
+ DONATION_MAX = { 32 }
+ FLIP_DECINC_INTERVAL = 0
+ NUM_SERVERS = 5
+ NUM_RES_TYPES = 1
+ ALL_DECS_OR_INCS = true
+ SERVER hadsA has RATIO 2
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER hadsB has RATIO 3
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER hadsC has RATIO 4
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER hadsD has RATIO 5
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER hadsE has RATIO 5
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ GENERATOR = hadsA
+number of transactions           20
+number of donations              0
+sum of donations                 { 0 }
+done optimistically              20
+undone                           0
+violations                       0
+done optimistically fraction all 1.0
+undone fraction optimistic       0.0
+undone fraction all              0.0
+average PRT/ORT ratio            27.612173
+maximum PRT/ORT ratio            63.0
+number of  1.0 <= ratio <  5.0  0
+number of  5.0 <= ratio < 10.0  2
+number of 10.0 <= ratio < 15.0  2
+number of 15.0 <= ratio         16
+number of zero ORTs=0, number of negative ORTs=0
+avgPRT=107.65, minPRT=45.0, maxPRT=829.0
+avgORT=4.4, minORT=1.0, maxORT=16.0
+vTuT=0, vTuF=0, vFuT=0, vFuF=20
+hadsA received 1 transactions,
+ of which 0 were violations, of which 0 were donations
+ did 0 of them (ones it is parent of) optimistically,
+ did 2 transactions optimistically overall
+ did this much work optimistically { 14 }
+ of which work { 0 } were violations, and { 0 } were violations undone
+ did this much work pessimistically (excluding donations) { 7 }
+hadsB received 2 transactions,
+ of which 0 were violations, of which 0 were donations
+ did 2 of them (ones it is parent of) optimistically,
+ did 3 transactions optimistically overall
+ did this much work optimistically { 17 }
+ of which work { 0 } were violations, and { 0 } were violations undone
+ did this much work pessimistically (excluding donations) { 10 }
+hadsC received 2 transactions,
+ of which 0 were violations, of which 0 were donations
+ did 1 of them (ones it is parent of) optimistically,
+ did 1 transactions optimistically overall
+ did this much work optimistically { 9 }
+ of which work { 0 } were violations, and { 0 } were violations undone
+ did this much work pessimistically (excluding donations) { 15 }
+hadsD received 7 transactions,
+ of which 0 were violations, of which 0 were donations
+ did 7 of them (ones it is parent of) optimistically,
+ did 7 transactions optimistically overall
+ did this much work optimistically { 44 }
+ of which work { 0 } were violations, and { 0 } were violations undone
+ did this much work pessimistically (excluding donations) { 44 }
+hadsE received 8 transactions,
+ of which 0 were violations, of which 0 were donations
+ did 7 of them (ones it is parent of) optimistically,
+ did 7 transactions optimistically overall
+ did this much work optimistically { 46 }
+ of which work { 0 } were violations, and { 0 } were violations undone
+ did this much work pessimistically (excluding donations) { 54 }
+transactionID=19

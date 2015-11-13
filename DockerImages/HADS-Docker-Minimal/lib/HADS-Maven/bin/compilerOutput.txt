@@ -1,0 +1,138 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building HADS-Maven 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ HADS-Maven ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ HADS-Maven ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 27 source files to /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.925s
+[INFO] Finished at: Sat Nov 07 15:21:42 EST 2015
+[INFO] Final Memory: 20M/177M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building HADS-Maven 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ HADS-Maven ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ HADS-Maven ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 27 source files to /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ HADS-Maven ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ HADS-Maven ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ HADS-Maven ---
+[INFO] Surefire report directory: /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running HADS.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ HADS-Maven ---
+[INFO] Building jar: /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.1:shade (default) @ HADS-Maven ---
+[INFO] Including com.hazelcast:hazelcast:jar:3.5.2 in the shaded jar.
+[INFO] Including org.redisson:redisson:jar:2.1.3 in the shaded jar.
+[INFO] Including io.netty:netty-buffer:jar:4.0.30.Final in the shaded jar.
+[INFO] Including io.netty:netty-common:jar:4.0.30.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport:jar:4.0.30.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler:jar:4.0.30.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec-http:jar:4.0.30.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec:jar:4.0.30.Final in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.5.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.5.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.5.0 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-simple:jar:1.7.12 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.12 in the shaded jar.
+[INFO] Skipping pom dependency org.gridgain:gridgain-fabric:pom:6.6.8 in the shaded jar.
+[INFO] Including org.gridgain:gridgain-core:jar:6.6.8 in the shaded jar.
+[INFO] Including org.gridgain:gridgain-indexing:jar:6.6.8 in the shaded jar.
+[INFO] Including com.vividsolutions:jts:jar:1.13 in the shaded jar.
+[INFO] Including org.gridgain:gridgain-spring:jar:6.6.8 in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-core:jar:1.3.0-incubating in the shaded jar.
+[INFO] Including javax.cache:cache-api:jar:1.0.0 in the shaded jar.
+[INFO] Including org.gridgain:ignite-shmem:jar:1.0.0 in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-spring:jar:1.3.0-incubating in the shaded jar.
+[INFO] Including org.springframework:spring-core:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including org.springframework:spring-aop:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including aopalliance:aopalliance:jar:1.0 in the shaded jar.
+[INFO] Including org.springframework:spring-beans:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including org.springframework:spring-context:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including org.springframework:spring-expression:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including org.springframework:spring-tx:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including org.springframework:spring-jdbc:jar:4.1.0.RELEASE in the shaded jar.
+[INFO] Including commons-logging:commons-logging:jar:1.1.1 in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-indexing:jar:1.3.0-incubating in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.6 in the shaded jar.
+[INFO] Including org.apache.lucene:lucene-core:jar:3.5.0 in the shaded jar.
+[INFO] Including com.h2database:h2:jar:1.3.175 in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-examples:jar:1.0.0-RC3 in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-hibernate:jar:1.0.0-RC3 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-core:jar:4.2.6.Final in the shaded jar.
+[INFO] Including antlr:antlr:jar:2.7.7 in the shaded jar.
+[INFO] Including org.jboss.logging:jboss-logging:jar:3.1.0.GA in the shaded jar.
+[INFO] Including dom4j:dom4j:jar:1.6.1 in the shaded jar.
+[INFO] Including org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:jar:1.0.1.Final in the shaded jar.
+[INFO] Including org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final in the shaded jar.
+[INFO] Including org.hibernate.common:hibernate-commons-annotations:jar:4.0.2.Final in the shaded jar.
+[INFO] Including org.javassist:javassist:jar:3.15.0-GA in the shaded jar.
+[INFO] Including org.apache.ignite:ignite-log4j:jar:1.0.0-RC3 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util:jar:9.0.5.v20130815 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-server:jar:9.0.5.v20130815 in the shaded jar.
+[INFO] Including org.eclipse.jetty.orbit:javax.servlet:jar:3.0.0.v201112011016 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-http:jar:9.0.5.v20130815 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-io:jar:9.0.5.v20130815 in the shaded jar.
+[INFO] Including commons-collections:commons-collections:jar:3.2.1 in the shaded jar.
+[INFO] Including log4j:log4j:jar:1.2.17 in the shaded jar.
+[INFO] Including com.google.code.simple-spring-memcached:spymemcached:jar:2.7.3 in the shaded jar.
+[INFO] Including org.jboss.netty:netty:jar:3.2.0.Final in the shaded jar.
+[INFO] Including org.codehaus.jettison:jettison:jar:1.1 in the shaded jar.
+[INFO] Including stax:stax-api:jar:1.0.1 in the shaded jar.
+[WARNING] gridgain-core-6.6.8.jar, ignite-core-1.3.0-incubating.jar define 2 overlapping classes: 
+[WARNING]   - org.jetbrains.annotations.Nullable
+[WARNING]   - org.jetbrains.annotations.NotNull
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://docs.codehaus.org/display/MAVENUSER/Shade+Plugin
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar with /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /home/mike/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/dependency-reduced-pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.933s
+[INFO] Finished at: Sat Nov 07 15:21:52 EST 2015
+[INFO] Final Memory: 47M/393M
+[INFO] ------------------------------------------------------------------------

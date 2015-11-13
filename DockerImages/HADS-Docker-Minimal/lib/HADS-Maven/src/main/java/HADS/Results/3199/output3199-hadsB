@@ -1,0 +1,184 @@
+ServI Usage: java ServerImpl file.xml pid localHostName [was... initialCB pctCB resultsFile server1 server2 ...]
+ServI in main: numServers = 5
+ServI in constructor: number of servers = 5
+ServI parameters = numServers=5 {I  200 } {U 2000 } {%  116 } {S   46 }
+ServI current = {sCB   46 } {mxV 2000 } {val  200 } {seW    0 } {toW    0 } {teW    0 } {ptW {    0 } {    0 } {    0 } {    0 } {    0 } }
+ServI  values = { 200 }
+ max_val = { 2000 }
+ pctCB=CBpercent = { 116 }
+ initialCB = { 200 }
+ upperCB = { 2000 }
+ initCB = { 46 }
+ CostBound = { 46 }
+ thisNodeAlloc = { 0 }
+Initializing Hazelcast Cluster...
+Hazelcast: Config set.
+Oct 05, 2015 1:32:39 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: [LOCAL] [dev] [3.5.2] Prefer IPv4 stack is true.
+Oct 05, 2015 1:32:39 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: [LOCAL] [dev] [3.5.2] Picked Address[172.17.42.1]:5702, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=5702], bind any local is true
+Oct 05, 2015 1:32:39 PM com.hazelcast.spi.OperationService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Backpressure is disabled
+Oct 05, 2015 1:32:39 PM com.hazelcast.spi.impl.operationexecutor.classic.ClassicOperationExecutor
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Starting with 2 generic operation threads and 2 partition operation threads.
+Oct 05, 2015 1:32:39 PM com.hazelcast.system
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Hazelcast 3.5.2 (20150826 - ba8dbba) starting at Address[172.17.42.1]:5702
+Oct 05, 2015 1:32:39 PM com.hazelcast.system
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Copyright (c) 2008-2015, Hazelcast, Inc. All Rights Reserved.
+Oct 05, 2015 1:32:39 PM com.hazelcast.instance.Node
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Creating MulticastJoiner
+Oct 05, 2015 1:32:39 PM com.hazelcast.core.LifecycleService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Address[172.17.42.1]:5702 is STARTING
+Oct 05, 2015 1:32:39 PM com.hazelcast.cluster.impl.MulticastJoiner
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Trying to join to discovered node: Address[172.17.42.1]:5701
+Oct 05, 2015 1:32:39 PM com.hazelcast.nio.tcp.SocketConnector
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Connecting to /172.17.42.1:5701, timeout: 0, bind-any: true
+Oct 05, 2015 1:32:39 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:60699
+Oct 05, 2015 1:32:45 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] 
+
+Members [2] {
+	Member [172.17.42.1]:5701
+	Member [172.17.42.1]:5702 this
+}
+
+Oct 05, 2015 1:32:47 PM com.hazelcast.core.LifecycleService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Address[172.17.42.1]:5702 is STARTED
+Hazelcast: A node has joined the cluster.
+Hazelcast: Current Cluster Size is 2.
+ServI Server is up and running
+Oct 05, 2015 1:32:51 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] 
+
+Members [3] {
+	Member [172.17.42.1]:5701
+	Member [172.17.42.1]:5702 this
+	Member [172.17.42.1]:5703
+}
+
+Oct 05, 2015 1:32:51 PM com.hazelcast.nio.tcp.SocketConnector
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Connecting to /172.17.42.1:5703, timeout: 0, bind-any: true
+Oct 05, 2015 1:32:51 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:57967
+Oct 05, 2015 1:32:56 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] 
+
+Members [4] {
+	Member [172.17.42.1]:5701
+	Member [172.17.42.1]:5702 this
+	Member [172.17.42.1]:5703
+	Member [172.17.42.1]:5704
+}
+
+Oct 05, 2015 1:32:56 PM com.hazelcast.nio.tcp.SocketConnector
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Connecting to /172.17.42.1:5704, timeout: 0, bind-any: true
+Oct 05, 2015 1:32:56 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:36944
+Oct 05, 2015 1:32:56 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:50015
+Oct 05, 2015 1:32:56 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:5702
+Oct 05, 2015 1:33:01 PM com.hazelcast.cluster.ClusterService
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] 
+
+Members [5] {
+	Member [172.17.42.1]:5701
+	Member [172.17.42.1]:5702 this
+	Member [172.17.42.1]:5703
+	Member [172.17.42.1]:5704
+	Member [172.17.42.1]:5705
+}
+
+Oct 05, 2015 1:33:01 PM com.hazelcast.nio.tcp.SocketConnector
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Connecting to /172.17.42.1:5705, timeout: 0, bind-any: true
+Oct 05, 2015 1:33:01 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:59534
+Oct 05, 2015 1:33:01 PM com.hazelcast.nio.tcp.SocketAcceptor
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Accepting socket connection from /10.0.2.15:50241
+Oct 05, 2015 1:33:01 PM com.hazelcast.nio.tcp.TcpIpConnectionManager
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Established socket connection between /172.17.42.1:5702
+Temp doTemp id=0, to=hadsE, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=0, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=0, change={ 9 }, max={ 2000 }, val={ 209 }, CB={ 46 }
+Perm doCmmt id=1, change={ 3 }, max={ 2000 }, val={ 212 }, CB={ 46 }
+Temp doTemp id=2, to=hadsD, oCB={ 46 }, change={ -7 }, nCB={ 39 }
+Temp compCB id=2, oCB={ 39 }, change={ 7 }, nCB={ 46 }
+Perm doCmmt id=2, change={ -7 }, max={ 2000 }, val={ 205 }, CB={ 46 }
+Temp doTemp id=3, to=hadsD, oCB={ 46 }, change={ 9 }, nCB={ 55 }
+Temp compCB id=3, oCB={ 55 }, change={ -9 }, nCB={ 46 }
+Perm doCmmt id=3, change={ 9 }, max={ 2000 }, val={ 214 }, CB={ 46 }
+Perm doCmmt id=4, change={ 8 }, max={ 2000 }, val={ 222 }, CB={ 46 }
+Temp doTemp id=5, to=hadsD, oCB={ 46 }, change={ 3 }, nCB={ 49 }
+Temp compCB id=5, oCB={ 49 }, change={ -3 }, nCB={ 46 }
+Perm doCmmt id=5, change={ 3 }, max={ 2000 }, val={ 225 }, CB={ 46 }
+Temp doTemp id=6, to=hadsB, oCB={ 46 }, change={ -5 }, nCB={ 41 }
+Serv imgRec id=6, wdT=hadsB, CB={ 41 }, change={ -5 }
+Serv sndCmp id=6, to=hadsE, change={ -5 }
+Serv sndCmp id=6, to=hadsD, change={ -5 }
+Serv sndCmp id=6, to=hadsA, change={ -5 }
+Serv sndCmp id=6, to=hadsC, change={ -5 }
+Perm cmtCmp id=6, change={ -5 }, max={ 2000 }, val={ 220 }, CB={ 41 }
+Perm resRec id=6, wdT=hadsB
+Temp doTemp id=7, to=hadsD, oCB={ 41 }, change={ 9 }, nCB={ 50 }
+Temp compCB id=7, oCB={ 50 }, change={ -9 }, nCB={ 41 }
+Perm doCmmt id=7, change={ 9 }, max={ 2000 }, val={ 229 }, CB={ 41 }
+Temp doTemp id=8, to=hadsE, oCB={ 41 }, change={ -6 }, nCB={ 35 }
+Temp compCB id=8, oCB={ 35 }, change={ 6 }, nCB={ 41 }
+Perm doCmmt id=8, change={ -6 }, max={ 2000 }, val={ 223 }, CB={ 41 }
+Temp doTemp id=9, to=hadsA, oCB={ 41 }, change={ -7 }, nCB={ 34 }
+Perm doCmmt id=9, change={ -7 }, max={ 2000 }, val={ 216 }, CB={ 34 }
+Temp doTemp id=10, to=hadsD, oCB={ 34 }, change={ -8 }, nCB={ 26 }
+Temp compCB id=10, oCB={ 26 }, change={ 8 }, nCB={ 34 }
+Perm doCmmt id=10, change={ -8 }, max={ 2000 }, val={ 208 }, CB={ 34 }
+Temp doTemp id=11, to=hadsE, oCB={ 34 }, change={ -7 }, nCB={ 27 }
+Temp compCB id=11, oCB={ 27 }, change={ 7 }, nCB={ 34 }
+Perm doCmmt id=11, change={ -7 }, max={ 2000 }, val={ 201 }, CB={ 34 }
+Temp doTemp id=12, to=hadsE, oCB={ 34 }, change={ -5 }, nCB={ 29 }
+Perm doCmmt id=12, change={ -5 }, max={ 2000 }, val={ 196 }, CB={ 29 }
+Temp doTemp id=13, to=hadsD, oCB={ 29 }, change={ 5 }, nCB={ 34 }
+Temp compCB id=13, oCB={ 34 }, change={ -5 }, nCB={ 29 }
+Perm doCmmt id=13, change={ 5 }, max={ 2000 }, val={ 201 }, CB={ 29 }
+Temp doTemp id=14, to=hadsE, oCB={ 29 }, change={ 4 }, nCB={ 33 }
+Temp compCB id=14, oCB={ 33 }, change={ -4 }, nCB={ 29 }
+Perm doCmmt id=14, change={ 4 }, max={ 2000 }, val={ 205 }, CB={ 29 }
+Temp doTemp id=15, to=hadsB, oCB={ 29 }, change={ 5 }, nCB={ 34 }
+Serv imgRec id=15, wdT=hadsA, CB={ 51 }, change={ 5 }
+Serv sndCmp id=15, to=hadsB, change={ 5 }
+Temp compCB id=15, oCB={ 34 }, change={ -5 }, nCB={ 29 }
+Serv sndCmp id=15, to=hadsC, change={ 5 }
+Serv sndCmp id=15, to=hadsD, change={ 5 }
+Serv sndCmp id=15, to=hadsE, change={ 5 }
+Perm cmtCmp id=15, change={ 5 }, max={ 2000 }, val={ 210 }, CB={ 29 }
+Perm resRec id=15, wdT=hadsA
+Temp doTemp id=16, to=hadsC, oCB={ 29 }, change={ -9 }, nCB={ 20 }
+Temp compCB id=16, oCB={ 20 }, change={ 9 }, nCB={ 29 }
+Perm doCmmt id=16, change={ -9 }, max={ 2000 }, val={ 201 }, CB={ 29 }
+Perm doCmmt id=17, change={ -7 }, max={ 2000 }, val={ 194 }, CB={ 29 }
+Temp doTemp id=18, to=hadsE, oCB={ 29 }, change={ -8 }, nCB={ 21 }
+Temp compCB id=18, oCB={ 21 }, change={ 8 }, nCB={ 29 }
+Perm doCmmt id=18, change={ -8 }, max={ 2000 }, val={ 186 }, CB={ 29 }
+Temp doTemp id=19, to=hadsC, oCB={ 29 }, change={ -6 }, nCB={ 23 }
+Temp compCB id=19, oCB={ 23 }, change={ 6 }, nCB={ 29 }
+Perm doCmmt id=19, change={ -6 }, max={ 2000 }, val={ 180 }, CB={ 29 }
+ServI Waiting for transaction number 20 to complete, current is 20
+ServI Transaction number 20 complete, counter=0, current is 20
+ServerI number of times Perm Proc did work = 2
+ServerI number of violations Perm Proc detected = 0
+ServerI number of completes = 10
+ServerI number of completes me = 10
+ServerI number of completes first = 2
+ServerI number of announces = 16
+ServerI number of compensates = 14
+ServerI size childq0 = 0
+ServI Waiting 10 more seconds...
+ServI ...waited 10 more seconds
+ServI writeResultsFile: current = {sCB   29 } {mxV 2000 } {val  180 } {seW   10 } {toW  130 } {teW   17 } {ptW {   14 } {   17 } {    6 } {   44 } {   49 } }
+ServI rec =          6   norm   1444066425639   1444066425730         91   TEMP   1444066425658           hadsB     1   no-u    no-v { 225 } { -5 } { 220 }  
+ServI rec =         15   norm   1444066433938   1444066433986         48   TEMP   1444066433941           hadsA     0   no-u    no-v { 205 } { 5 } { 210 }  
+ServI This server exiting in 10 seconds.
+Oct 05, 2015 1:35:17 PM com.hazelcast.nio.tcp.TcpIpConnection
+INFO: [172.17.42.1]:5702 [dev] [3.5.2] Connection [Address[172.17.42.1]:5701] lost. Reason: java.io.EOFException[Remote socket closed!]
+Oct 05, 2015 1:35:17 PM com.hazelcast.nio.tcp.ReadHandler
+WARNING: [172.17.42.1]:5702 [dev] [3.5.2] hz._hzInstance_1_dev.IO.thread-in-0 Closing socket to endpoint Address[172.17.42.1]:5701, Cause:java.io.EOFException: Remote socket closed!
+ServI This server exiting now.
