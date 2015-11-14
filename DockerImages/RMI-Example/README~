@@ -1,0 +1,15 @@
+IMPORTANT KEY NOTES
+
+**Running**
+sudo bin/run.sh
+
+**rmiregistry**
+It is necessary for rmiregistry to be ran in the directory where the source files are located.
+This was easily solved by using 'WORKDIR /root/RMI-Example' and running everything we need from there.
+
+**TODO**
+Replace Dockerfile ADD by using Volumes instead.
+	Current Issues:
+		Volume creates directory, but doesn't seem to be copying any files.
+
+Setup RMI-Example as a jar.
