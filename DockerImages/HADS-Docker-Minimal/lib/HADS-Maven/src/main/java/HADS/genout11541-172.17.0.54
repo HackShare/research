@@ -1,0 +1,61 @@
+Transaction Generator Started!!
+Usage: java TransGenerator file.xml pid [was... generationDelay minimumChange maximumChange numTransactions decRatio incRatio batchFile resultsFile numServers server1 ratio1 server2 ratio2 ...]
+Transaction Generator command line arguments processed:
+ pid =                11541
+ initial_cost_bound = { 200 }
+ upper_cost_bound =   { 2000 }
+ donationInterval =   0
+ donationMin =        { 8 }
+ donationMax =        { 32 }
+ flipDecIncInterval = 0
+ delay =              1000
+ number =             20
+ current_batch =      batch11541-172.17.0.54
+ results_file =       merged11541-172.17.0.54
+ allDecsOrIncs =      true
+ numServers =         5
+ ratioTotal =         19
+ min_change =         { { 3 }{ 3 }{ 3 }{ 3 }{ 3 } }
+ max_change =         { { 9 }{ 9 }{ 9 }{ 9 }{ 9 } }
+ decrease_ratio =     { { 10 }{ 10 }{ 10 }{ 10 }{ 10 } }
+ increase_ratio =     { { 5 }{ 5 }{ 5 }{ 5 }{ 5 } }
+server = //172.17.0.54/172.17.0.54S11541, ratio = 2
+server = //172.17.0.53/172.17.0.53S11541, ratio = 3
+server = //172.17.0.52/172.17.0.52S11541, ratio = 4
+server = //172.17.0.51/172.17.0.51S11541, ratio = 5
+server = //172.17.0.50/172.17.0.50S11541, ratio = 5
+Transactions Being Generated Now!!
+GEN DELAY: 6500
+SERVERS: 5
+Now Generating and Sending Transactions
+Sleeping an average of 1000 milliseconds between transactions
+On average, one of every 0 transaction is a donation of new resources
+Looking up init server: //172.17.0.50/172.17.0.50S11541
+java.rmi.NotBoundException: 172.17.0.50S11541
+	at sun.rmi.registry.RegistryImpl.lookup(RegistryImpl.java:137)
+	at sun.rmi.registry.RegistryImpl_Skel.dispatch(Unknown Source)
+Exception occured generating transactions
+Exception: java.rmi.NotBoundException: 172.17.0.50S11541
+	at sun.rmi.server.UnicastServerRef.oldDispatch(UnicastServerRef.java:409)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:267)
+	at sun.rmi.transport.Transport$2.run(Transport.java:202)
+	at sun.rmi.transport.Transport$2.run(Transport.java:199)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:198)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:567)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.access$400(TCPTransport.java:619)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$1.run(TCPTransport.java:684)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$1.run(TCPTransport.java:681)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:681)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:275)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:252)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:378)
+	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+	at java.rmi.Naming.lookup(Naming.java:101)
+	at HADS.Generator.TransGenerator.startGeneration(TransGenerator.java:207)
+	at HADS.Generator.TransGenerator.main(TransGenerator.java:354)

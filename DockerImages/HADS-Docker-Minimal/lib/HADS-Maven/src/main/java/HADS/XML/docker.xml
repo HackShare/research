@@ -18,7 +18,7 @@
   <num-servers>5</num-servers>
   <all-decs-or-incs>true</all-decs-or-incs>
   <server>
-    <server-name>172.17.0.84</server-name>
+    <server-name>172.17.0.60</server-name>
     <server-ratio>2</server-ratio>
     <min-change-0>3</min-change-0>
     <max-change-0>9</max-change-0>
@@ -26,7 +26,7 @@
     <inc-ratio-0>5</inc-ratio-0>
   </server>
   <server>
-    <server-name>172.17.0.83</server-name>
+    <server-name>172.17.0.61</server-name>
     <server-ratio>3</server-ratio>
     <min-change-0>3</min-change-0>
     <max-change-0>9</max-change-0>
@@ -34,7 +34,7 @@
     <inc-ratio-0>5</inc-ratio-0>
   </server>
   <server>
-    <server-name>172.17.0.82</server-name>
+    <server-name>172.17.0.62</server-name>
     <server-ratio>4</server-ratio>
     <min-change-0>3</min-change-0>
     <max-change-0>9</max-change-0>
@@ -42,7 +42,7 @@
     <inc-ratio-0>5</inc-ratio-0>
   </server>
   <server>
-    <server-name>172.17.0.81</server-name>
+    <server-name>172.17.0.63</server-name>
     <server-ratio>5</server-ratio>
     <min-change-0>3</min-change-0>
     <max-change-0>9</max-change-0>
@@ -50,12 +50,12 @@
     <inc-ratio-0>5</inc-ratio-0>
   </server>
   <server>
-    <server-name>172.17.0.80</server-name>
+    <server-name>172.17.0.64</server-name>
     <server-ratio>5</server-ratio>
     <min-change-0>3</min-change-0>
     <max-change-0>9</max-change-0>
     <dec-ratio-0>10</dec-ratio-0>
     <inc-ratio-0>5</inc-ratio-0>
   </server>
-  <generator>172.17.0.84</generator>
+  <generator>172.17.0.60</generator>
 </hads>

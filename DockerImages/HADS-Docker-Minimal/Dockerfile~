@@ -6,6 +6,10 @@ RUN apt-get update
 RUN apt-get install -y openjdk-7-jre
 RUN apt-get install -y openjdk-7-jdk
 RUN apt-get install -y ufw
+RUN apt-get install -y nano
 ADD lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar ./root/HADS-Maven/HADS-Maven-1.0-SNAPSHOT.jar
+ADD lib/RMI-1/src/RMI/entrypoint.sh ./root/HADS-Maven/entrypoint.sh
+
+WORKDIR root/HADS-Maven
 
 #EXPOSE 1099

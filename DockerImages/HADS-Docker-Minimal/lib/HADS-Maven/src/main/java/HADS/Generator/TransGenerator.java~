@@ -190,15 +190,20 @@ public class TransGenerator {
         int upper=0;
         int lower=1;
         int server_pos=0;
-        for(int j = 0; j < numServers; j++) {
-          upper += Ratios.get(j);
-          if(rand_val >= lower && rand_val <= upper) {
-            server_pos=j;
-            break;
-          } else lower=1+upper;
+        for(int j = 0; j < numServers; j++) 
+	{
+        	upper += Ratios.get(j);
+          	if(rand_val >= lower && rand_val <= upper) 
+		{
+            		server_pos=j;
+            		break;
+          	} 
+		else 
+			lower=1+upper;
         }
         numSentServer[server_pos]++;
         String init_server_name = ServerObjNames.get(server_pos);
+	System.out.println("Looking up init server: " + init_server_name);
         Server initializing_server = (Server) Naming.lookup(init_server_name);
         TransactionRequest tr = null;
         System.out.println("current = " + current.toString());

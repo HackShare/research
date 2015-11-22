@@ -115,6 +115,7 @@ public class ServerImpl extends UnicastRemoteObject
     perm_proc.start();
     temp_proc.start();
     resultsList=new ResultsQueue(200);
+	System.out.println(perm_proc.toString());
   } //end constructor
 
   public ResultsQueue SendResults() { return resultsList; }
@@ -653,11 +654,14 @@ if (TEMPP_COMPN_DEBUG_OUTPUT) {
          new ServerImpl(pid, initialCB, upperCB, pctCB, resultsFileName,
          myName, myNameIndex, numServers, servers);
 
-      System.out.println("ServI Object Created");
+      /*ServerObjName = "//" + server_implementation.getMyHN() + "/"
+         + server_implementation.getMyHN() + "S" + pid;*/
       ServerObjName = "//" + server_implementation.getMyHN() + "/"
          + server_implementation.getMyHN() + "S" + pid;
+      System.out.println("ServI: Binding to - " + ServerObjName);
+
       Naming.rebind(ServerObjName, server_implementation);
-      System.out.println("ServI Name Bound");
+      System.out.println("ServI: Name Binding Successful!");
     } catch (Exception e) {
       System.out.println("ServI Exception occurred: " + e);
       e.printStackTrace();

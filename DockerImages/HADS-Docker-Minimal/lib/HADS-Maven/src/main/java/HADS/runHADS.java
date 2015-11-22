@@ -42,7 +42,7 @@ class RunHADS {
 
    public static void main(String args[]) throws IOException {
      final String HOME = getHome();
-     final String CLASSPATH = ".:" + HOME + "/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar:~";
+     final String CLASSPATH = HOME + "/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/:" + HOME + "/DockerImages/HADS-Docker-Minimal/lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar";
      final String DOCKER_CLASSPATH = "./root/HADS-Maven:./root/HADS-Maven/HADS-Maven-1.0-SNAPSHOT.jar";
      final String PID = getPid();
      final String SHELL = "/bin/bash";
@@ -82,9 +82,9 @@ class RunHADS {
      for (int i = 0; i < servers.size(); i++) {
           String currentServer = (String)servers.get(i);
 	  arguments[2] = "Output-"+currentServer;
-          arguments[7] = "sudo docker exec -it HADS-Docker-Minimal-Server"+i
-	    + " java -cp ./root/HADS-Maven:./root/HADS-Maven/HADS-Maven-1.0-SNAPSHOT.jar"
-	    + " HADS.Server.ServerImpl root/HADS-Maven/docker.xml"
+          arguments[7] = "docker exec -it HADS-Docker-Minimal-Server"+i
+	    + " java"
+	    + " HADS.Server.ServerImpl docker.xml"
             + " " + PID + " " + currentServer + " " + DOCKER_CLASSPATH + " " + SHELL + " " 
 	    + SHELL_FLAGS + " " + OUTPUT_PREFIX;
 
@@ -107,12 +107,21 @@ class RunHADS {
      arguments[0] = SHELL;  
      arguments[1] = SHELL_FLAGS;
      // cd $HOME/temp      for all commands below
-
+	System.out.println("===STARTING GENERATOR===");
      // All but XML file name and PID are in the XML file and
      // read by the generator.
+	arguments[2] = "docker exec HADS-Docker-Minimal-Server0"
+        + " java HADS.Generator.TransGenerator "
+        + "docker.xml" + " " + PID + " ";
+
+
+	/*arguments[2] = "CLASSPATH=" + CLASSPATH
+        + " java HADS.Generator.TransGenerator " + HOME + "/HADS/"
+        + XML_FILE_NAME + " " + PID + " ";
+	
      arguments[2] = "cd ~/temp; CLASSPATH=" + CLASSPATH
         + " java HADS.Generator.TransGenerator ../HADS/"
-        + XML_FILE_NAME + " " + PID + " ";
+        + XML_FILE_NAME + " " + PID + " ";*/
 
      arguments[2] += " 1>" + GENOUT_PREFIX + PID + "-" + GENERATOR + " 2>&1";
 
@@ -144,7 +153,7 @@ class RunHADS {
       p = runtime.exec(arguments);
       System.out.println(getProcessOutput(p));
       System.out.println("DONE: " + arguments[2]);*/
-
+	System.out.println("===STARTING STATISTICS===");
       arguments[2] = "cd " + HOME + "/temp; "
         + "CLASSPATH=" + CLASSPATH
         + " java HADS.Generator.Statistics ../HADS/" + XML_FILE_NAME
@@ -188,7 +197,7 @@ class RunHADS {
              System.out.println("DONE: " + arguments[2]);
           }
      }*/
-
+	System.out.println("===CREATING RESULTS===");
      arguments[2] = "mkdir " + HOME  + SRC_DIR + "/HADS/Results/" + PID
         + "; cd " + HOME  + SRC_DIR + "/HADS/Results/" + PID
         + "; mv " + HOME + "/temp/*" + PID + "* .";

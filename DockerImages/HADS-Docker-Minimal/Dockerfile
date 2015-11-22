@@ -9,4 +9,6 @@ RUN apt-get install -y ufw
 RUN apt-get install -y nano
 ADD lib/HADS-Maven/target/HADS-Maven-1.0-SNAPSHOT.jar ./root/HADS-Maven/HADS-Maven-1.0-SNAPSHOT.jar
 
+WORKDIR root/HADS-Maven
+
 #EXPOSE 1099

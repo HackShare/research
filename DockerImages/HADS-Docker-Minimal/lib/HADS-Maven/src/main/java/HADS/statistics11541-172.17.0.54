@@ -1,0 +1,52 @@
+Statistics args: ../HADS/XML/file11419.xml, 11541, merged11541-172.17.0.54.sorted
+XML file name = ../HADS/XML/file11419.xml
+pid = 11541
+input file name = merged11541-172.17.0.54.sorted
+numResourceTypes = 1
+dataHADS = 
+ fileName = ../HADS/XML/file11419.xml
+ BATCH_PREFIX = batch
+ OUTPUT_PREFIX = output
+ GENOUT_PREFIX = genout
+ RESULTS_PREFIX = results
+ MERGED_PREFIX = merged
+ STATS_PREFIX = statistics
+ UPPER_BOUND = { 2000 }
+ COST_BOUND = { 200 }
+ COST_PCT = { 116 }
+ GEN_DELAY = 1000
+ NUM_TRANS = 20
+ DONATION_INTERVAL = 0
+ DONATION_MIN = { 8 }
+ DONATION_MAX = { 32 }
+ FLIP_DECINC_INTERVAL = 0
+ NUM_SERVERS = 5
+ NUM_RES_TYPES = 1
+ ALL_DECS_OR_INCS = true
+ SERVER 172.17.0.54 has RATIO 2
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER 172.17.0.53 has RATIO 3
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER 172.17.0.52 has RATIO 4
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER 172.17.0.51 has RATIO 5
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ SERVER 172.17.0.50 has RATIO 5
+    MIN_CHANGE = { 3 }
+    MAX_CHANGE = { 9 }
+    DEC_RATIO = { 10 }
+    INC_RATIO = { 5 }
+ GENERATOR = 172.17.0.54
+transactionID=0

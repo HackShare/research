@@ -203,6 +203,7 @@ public class TransGenerator {
         }
         numSentServer[server_pos]++;
         String init_server_name = ServerObjNames.get(server_pos);
+	System.out.println("Looking up init server: " + init_server_name);
         Server initializing_server = (Server) Naming.lookup(init_server_name);
         TransactionRequest tr = null;
         System.out.println("current = " + current.toString());
