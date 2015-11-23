@@ -14,7 +14,7 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
         {
             HelloImpl obj = new HelloImpl();
             // Bind this object instance to the name "HelloServer"
-            Naming.rebind("HelloServer", obj);
+            Naming.rebind("//localhost/HelloServer", obj);
 	    System.err.println("Server ready");
         }
         catch (Exception e)

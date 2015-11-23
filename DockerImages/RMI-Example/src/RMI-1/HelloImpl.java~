@@ -6,7 +6,7 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
 {
     public HelloImpl() throws RemoteException {}
 
-    public String sayHello() { return "Hello from RMI-1!"; }
+    public String sayHello(String ip) { return "Hello from " + ip + "!"; }
 
     public static void main(String args[])
     {
@@ -14,7 +14,7 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
         {
             HelloImpl obj = new HelloImpl();
             // Bind this object instance to the name "HelloServer"
-            Naming.rebind("HelloServer", obj);
+            Naming.rebind("//localhosty/HelloServer", obj);
 	    System.err.println("Server ready");
         }
         catch (Exception e)
