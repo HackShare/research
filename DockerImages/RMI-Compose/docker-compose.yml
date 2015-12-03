@@ -1,0 +1,26 @@
+impl:
+  build: .
+  container_name: rmi-impl
+  volumes:
+   - ./src/RMI-1:/root/RMI-Example
+  environment:
+  - TEST=someValue
+  #Did not write a script to dynamically set HelloClient target IP address (this container)
+  #If there is an issue, its likely that HelloClient is targetting the wrong IP
+  command: bash -c "rmiregistry & sh entrypoint.sh HelloImpl"
+
+client:
+  image: rmicompose_impl
+  container_name: rmi-client
+  # Links indicate dependency and container start order -- this will start second
+  links:
+     - impl
+  volumes:
+   - ./src/RMI-1:/root/RMI-Example
+  environment:
+  - TEST=someValue
+  command: bash -c "rmiregistry & sh entrypoint.sh HelloClient"
+
+
+
+
