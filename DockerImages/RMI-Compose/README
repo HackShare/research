@@ -1,17 +1,16 @@
 IMPORTANT KEY NOTES
 
 **Running**
---No longer requires sudo permissions to run--
---Add user to group if required: sudo usermod -aG docker ubuntu--
-bin/run.sh
+--Type: docker-compose up
 
 **rmiregistry**
 It is necessary for rmiregistry to be ran in the directory where the source files are located.
 This was easily solved by using 'WORKDIR /root/RMI-Example' and running everything we need from there.
 
-**TODO**
-Replace Dockerfile ADD by using Volumes instead.
-	Current Issues:
-		Volume creates directory, but doesn't seem to be copying any files.
+**NOTE**
+#Did not write a script to dynamically set HelloClient target IP address (this container)
+#If there is an issue running, its likely that HelloClient is targetting the wrong IP
 
-Setup RMI-Example as a jar.
+Since it appears that everytime we run this, that the IP doesn't change, to attempt to inspect the rmi-impl container's IP address and change the target IP address in ./src/RMI-1/HelloClient.java
+
+Another option to get the ipaddress is to change the command in docker-compose.yml to run 'ifconfig' and just read the IP from there.

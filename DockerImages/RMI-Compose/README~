@@ -1,7 +1,9 @@
 IMPORTANT KEY NOTES
 
 **Running**
-sudo bin/run.sh
+--No longer requires sudo permissions to run--
+--Add user to group if required: sudo usermod -aG docker ubuntu--
+bin/run.sh
 
 **rmiregistry**
 It is necessary for rmiregistry to be ran in the directory where the source files are located.
