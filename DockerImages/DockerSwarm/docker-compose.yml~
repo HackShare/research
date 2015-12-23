@@ -1,0 +1,17 @@
+test:
+  build: .
+  container_name: my-test-compose-container
+  ports:
+   - "5000:5000"
+  volumes:
+   - .:/code
+  links:
+   - redis
+  environment:
+  - TEST=someValue
+  command: bash -c "ls && echo $HOME"
+  log_driver: "json-file"
+redis:
+  image: redis
+  container_name: compose-redis-link
+
