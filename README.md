@@ -22,7 +22,7 @@ Integration between COPAR* and 3 different in-memory grid storage systems includ
   Includes: Hazelcast/Redis/Gridgain Storage, Maven POM, COPAR Simulation
   
   *Information about Rowan University's COPAR simulator can be found at: http://elvis.rowan.edu/~crichlow/coparciit04a.pdf
-    Additional research works can be found on my website: http://elvis.rowan.edu/~middle59/websites/MikeMiddleton/research/links/
+    Additional research work for COAPR can be found on my website: http://elvis.rowan.edu/~middle59/websites/MikeMiddleton/research/links/
 
 **./DockerImages/test**
 
