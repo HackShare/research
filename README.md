@@ -17,9 +17,12 @@ Maven built project testing the basic distributed data structures of Hazelcast, 
 
 **./HADS-Maven**
 
-Integration between COPAR and 3 different in-memory grid storage systems including Hazelcast, Redisson, and Gridgain.
+Integration between COPAR* and 3 different in-memory grid storage systems including Hazelcast, Redisson, and Gridgain.
   
   Includes: Hazelcast/Redis/Gridgain Storage, Maven POM, COPAR Simulation
+  
+  *Information about Rowan University's COPAR simulator can be found at: http://elvis.rowan.edu/~crichlow/coparciit04a.pdf
+    Additional research work for COAPR can be found on my website: http://elvis.rowan.edu/~middle59/websites/MikeMiddleton/research/links/
 
 **./DockerImages/test**
 
